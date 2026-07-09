@@ -47,6 +47,8 @@
     win: "🏆 得獎",
     nom: "入圍",
     backRanking: "← 返回排行榜",
+    backLabel: "← 返回",
+    nomineeCol: "入圍 / 得獎者",
     choosePerson: "請在上方搜尋框輸入或選擇人名、團體名稱。",
     totalNoms: "總入圍",
     totalWins: "總得獎",
@@ -376,6 +378,10 @@
     } else if (parts[0] === "award" && parts[1]) {
       state.selectedAward = parts.slice(1).join("/");
       state.tab = "award";
+    } else if (parts[0] === "work" && parts[1] && parts[2]) {
+      state.selectedWorkE = Number(parts[1]) || 0;
+      state.selectedWork = parts.slice(2).join("/");
+      state.tab = "work";
     } else if (parts[0] === "lineage") {
       state.tab = "lineage";
     } else if (parts[0] === "ranking") {
@@ -391,6 +397,8 @@
       next = "edition/" + encodeURIComponent(state.selectedEdition);
     } else if (state.tab === "award") {
       next = "award/" + encodeURIComponent(state.selectedAward);
+    } else if (state.tab === "work" && state.selectedWork) {
+      next = "work/" + state.selectedWorkE + "/" + encodeURIComponent(state.selectedWork);
     } else if (state.tab === "lineage") {
       next = "lineage";
     } else {
@@ -416,6 +424,8 @@
       renderEdition();
     } else if (state.tab === "award") {
       renderAward();
+    } else if (state.tab === "work") {
+      renderWork();
     } else if (state.tab === "lineage") {
       renderLineage();
     } else {
@@ -647,7 +657,7 @@
         el("strong", {}, [txt("sectionDist") + "："]),
         document.createTextNode(dist || txt("empty"))
       ]),
-      table([txt("editionCol"), txt("year"), txt("awardName"), txt("work"), txt("performer"), txt("unit"), txt("result")], records.map(function (record) {
+      table([txt("editionCol"), txt("year"), txt("awardName"), txt("nomineeCol"), txt("work"), txt("performer"), txt("unit"), txt("result")], records.map(function (record) {
         var tr = document.createElement("tr");
         if (record.win) {
           tr.className = "winner-row";
@@ -656,7 +666,8 @@
           format(txt("edOnly"), record.e),
           String(record.y || ""),
           awardLabel(record),
-          tx(formatWork(record)),
+          peopleLinks(record.who),
+          workLink(record),
           tx(record.perf) || "—",
           tx(record.unit || ""),
           badge(record.win)
@@ -809,12 +820,123 @@
     }
     appendCells(tr, [
       badge(record.win),
-      personLink(record.who),
-      tx(formatWork(record)),
+      peopleLinks(record.who),
+      workLink(record),
       tx(record.perf) || "—",
       tx(record.unit || "")
     ]);
     return tr;
+  }
+
+  function workParts(workStr) {
+    // "歌名《專輯》" -> [歌名, 專輯]; "專輯" -> [專輯]; normalized for matching
+    var w = clean(workStr);
+    if (!w) {
+      return [];
+    }
+    var m = w.match(/^(.*?)《(.*)》$/);
+    var parts = m ? [m[1].trim(), m[2].trim()] : [w];
+    return parts.map(norm).filter(Boolean);
+  }
+
+  function openWork(record) {
+    state.selectedWork = record.work;
+    state.selectedWorkE = record.e;
+    state.tab = "work";
+    writeHash();
+    render();
+  }
+
+  function workLink(record) {
+    var label = formatWork(record);
+    if (!label) {
+      return document.createTextNode("—");
+    }
+    var button = document.createElement("button");
+    button.type = "button";
+    button.className = "person-link";
+    button.textContent = tx(label);
+    button.addEventListener("click", function () {
+      openWork(record);
+    });
+    return button;
+  }
+
+  function peopleLinks(who) {
+    var names = splitPeople(who);
+    if (!names.length) {
+      return document.createTextNode(tx(who || "") || "—");
+    }
+    var wrap = document.createElement("span");
+    names.forEach(function (name, i) {
+      if (i > 0) {
+        wrap.appendChild(document.createTextNode("、"));
+      }
+      wrap.appendChild(personLink(name));
+    });
+    return wrap;
+  }
+
+  function renderWork() {
+    clear(dom.app);
+
+    var targetParts = workParts(state.selectedWork);
+    var edition = state.selectedWorkE;
+    if (!targetParts.length || !edition) {
+      dom.app.appendChild(el("section", { className: "panel empty" }, [
+        el("p", {}, [txt("empty")])
+      ]));
+      return;
+    }
+
+    var records = state.records.filter(function (record) {
+      if (record.e !== edition) {
+        return false;
+      }
+      return workParts(record.work).some(function (p) {
+        return targetParts.indexOf(p) !== -1;
+      });
+    }).sort(function (a, b) {
+      return Number(b.win) - Number(a.win) || sortText(a.cat, b.cat);
+    });
+
+    var wins = records.filter(function (r) { return r.win; }).length;
+    var year = records.length ? records[0].y : editionYear(edition);
+
+    var back = el("button", { className: "link-button", type: "button" }, [txt("backLabel")]);
+    back.addEventListener("click", function () {
+      window.history.back();
+    });
+
+    var display = records.length ? formatWork(records[0]) : state.selectedWork;
+
+    dom.app.appendChild(el("section", { className: "panel" }, [
+      el("div", { className: "person-head" }, [
+        back,
+        el("h2", {}, [tx(display)]),
+        el("span", { className: "muted" }, [format(txt("editionFormat"), edition, year || "")])
+      ]),
+      el("div", { className: "cards" }, [
+        statCard(txt("totalNoms"), records.length),
+        statCard(txt("totalWins"), wins)
+      ]),
+      table([txt("result"), txt("awardName"), txt("nomineeCol"), txt("work"), txt("performer"), txt("unit")],
+        records.map(function (record) {
+          var tr = document.createElement("tr");
+          if (record.win) {
+            tr.className = "winner-row";
+          }
+          appendCells(tr, [
+            badge(record.win),
+            awardLabel(record),
+            peopleLinks(record.who),
+            tx(formatWork(record)),
+            tx(record.perf) || "—",
+            tx(record.unit || "")
+          ]);
+          return tr;
+        }), "records-table")
+    ]));
   }
 
   function formatWork(record) {
