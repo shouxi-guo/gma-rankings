@@ -155,15 +155,39 @@ button {
   cursor: pointer;
 }
 
-.lang-toggle {
-  height: 34px;
-  margin-top: 22px;
-  border: 1px solid rgba(212, 160, 23, 0.75);
-  border-radius: 6px;
-  background: rgba(212, 160, 23, 0.12);
-  color: #ffe7a2;
-  padding: 0 10px;
+h1 {
+  cursor: pointer;
+}
+
+.lang-switch {
+  display: flex;
+  margin-top: 20px;
+  border: 1px solid var(--gold);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px rgba(212, 160, 23, 0.18);
+}
+
+.lang-switch button {
+  height: 36px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(255, 255, 255, 0.06);
+  color: #e8e9f0;
+  padding: 0 14px;
+  font-weight: 650;
   white-space: nowrap;
+}
+
+.lang-switch button.is-on {
+  background: var(--gold);
+  color: #241a00;
+}
+
+.lang-switch button:not(.is-on):hover {
+  background: rgba(212, 160, 23, 0.28);
+  color: #fff;
+  box-shadow: none;
 }
 
 .tabs {
@@ -591,7 +615,7 @@ footer a {
     max-width: none;
   }
 
-  .lang-toggle {
+  .lang-switch {
     margin-top: 0;
   }
 
@@ -637,8 +661,9 @@ footer a {
     display: block;
   }
 
-  .lang-toggle {
+  .lang-switch {
     margin-bottom: 8px;
+    width: fit-content;
   }
 
   .cards {

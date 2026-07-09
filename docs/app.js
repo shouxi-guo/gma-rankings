@@ -32,9 +32,12 @@
     sortBy: "排序",
     sortWins: "得獎數",
     sortNoms: "入圍數",
-    sortRate: "得獎率（僅入圍≥5）",
+    sortRate: "得獎率",
+    entityType: "統計對象",
+    typePerson: "個人・團體",
+    typeUnit: "公司・單位",
+    typeAll: "全部（混排）",
     onlyWins: "只看得獎紀錄",
-    hideUnits: "隱藏公司/單位",
     showMore: "顯示更多",
     totalRows: "共 {0} 筆統計；目前顯示 {1} 筆",
     rank: "排名",
@@ -46,7 +49,6 @@
     empty: "無資料",
     win: "🏆 得獎",
     nom: "入圍",
-    backRanking: "← 返回排行榜",
     backLabel: "← 返回",
     nomineeCol: "入圍 / 得獎者",
     choosePerson: "請在上方搜尋框輸入或選擇人名、團體名稱。",
@@ -101,7 +103,7 @@
       to: "",
       sort: "wins",
       winsOnly: false,
-      hideUnits: false
+      type: "person"  // 預設個人・團體，避免公司與歌手混排
     }
   };
 
@@ -118,7 +120,9 @@
     dom.app = document.getElementById("app");
     dom.globalSearch = document.getElementById("globalSearch");
     dom.suggestions = document.getElementById("suggestions");
-    dom.langToggle = document.getElementById("langToggle");
+    dom.langButtons = Array.prototype.slice.call(
+      document.querySelectorAll("#langSwitch button"));
+    dom.brandTitle = document.querySelector("h1");
     dom.tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
 
     bindBaseEvents();
@@ -161,12 +165,20 @@
       });
     });
 
-    dom.langToggle.addEventListener("click", function () {
-      state.lang = state.lang === "simp" ? "trad" : "simp";
-      localStorage.setItem("gma-lang", state.lang);
-      applyStaticText();
-      render();
+    dom.langButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        var lang = button.getAttribute("data-lang");
+        if (lang !== state.lang) {
+          state.lang = lang;
+          localStorage.setItem("gma-lang", state.lang);
+          applyStaticText();
+          render();
+        }
+      });
     });
+
+    // clicking the site title resets everything back to the default view
+    dom.brandTitle.addEventListener("click", resetToHome);
 
     dom.globalSearch.addEventListener("input", function () {
       renderSuggestions(dom.globalSearch.value);
@@ -204,7 +216,10 @@
     document.querySelector(".subtitle").textContent = tx("資料來源：文化部影視及流行音樂產業局開放資料");
     document.querySelector(".global-search label").textContent = txt("titleSearch");
     dom.globalSearch.placeholder = txt("searchPlaceholder");
-    dom.langToggle.textContent = state.lang === "simp" ? "简 / 繁" : "繁 / 简";
+    dom.langButtons.forEach(function (button) {
+      button.classList.toggle("is-on",
+        button.getAttribute("data-lang") === state.lang);
+    });
     dom.tabs.forEach(function (button) {
       button.textContent = txt(button.getAttribute("data-tab"));
     });
@@ -371,7 +386,6 @@
     if (parts[0] === "person" && parts[1]) {
       state.selectedPerson = parts.slice(1).join("/");
       state.tab = "person";
-      dom.globalSearch.value = tx(state.selectedPerson);
     } else if (parts[0] === "edition" && parts[1]) {
       state.selectedEdition = parts[1];
       state.tab = "edition";
@@ -412,6 +426,26 @@
   function setTab(tab) {
     state.tab = tab;
     state.rankVisible = PAGE_SIZE;
+    writeHash();
+    render();
+  }
+
+  function resetToHome() {
+    state.tab = "ranking";
+    state.selectedPerson = "";
+    state.rankVisible = PAGE_SIZE;
+    state.rankingFilters = {
+      aid: "",
+      section: "",
+      lang: "",
+      from: state.editions.length ? String(state.editions[0].e) : "",
+      to: state.editions.length ? String(state.editions[state.editions.length - 1].e) : "",
+      sort: "wins",
+      winsOnly: false,
+      type: "person"
+    };
+    dom.globalSearch.value = "";
+    hideSuggestions();
     writeHash();
     render();
   }
@@ -484,12 +518,16 @@
           filters.sort = value;
           resetRanking();
         })),
+        field(txt("entityType"), selectControl("rankType", [
+          { value: "person", label: txt("typePerson") },
+          { value: "unit", label: txt("typeUnit") },
+          { value: "", label: txt("typeAll") }
+        ], filters.type, function (value) {
+          filters.type = value;
+          resetRanking();
+        })),
         checkField("rankWinsOnly", txt("onlyWins"), filters.winsOnly, function (checked) {
           filters.winsOnly = checked;
-          resetRanking();
-        }),
-        checkField("rankHideUnits", txt("hideUnits"), filters.hideUnits, function (checked) {
-          filters.hideUnits = checked;
           resetRanking();
         })
       ]),
@@ -566,7 +604,10 @@
         if (!name || name === "從缺") {
           return;
         }
-        if (filters.hideUnits && COMPANY_RE.test(name)) {
+        if (filters.type === "person" && COMPANY_RE.test(name)) {
+          return;
+        }
+        if (filters.type === "unit" && !COMPANY_RE.test(name)) {
           return;
         }
         if (!map.has(name)) {
@@ -590,9 +631,7 @@
         return b.noms - a.noms || b.wins - a.wins || sortText(a.name, b.name);
       }
       if (filters.sort === "rate") {
-        var ar = a.noms >= 5 ? a.rate : -1;
-        var br = b.noms >= 5 ? b.rate : -1;
-        return br - ar || b.wins - a.wins || b.noms - a.noms || sortText(a.name, b.name);
+        return b.rate - a.rate || b.wins - a.wins || b.noms - a.noms || sortText(a.name, b.name);
       }
       return b.wins - a.wins || b.noms - a.noms || sortText(a.name, b.name);
     });
@@ -637,14 +676,8 @@
       return tx(section) + " " + bySection[section].length + " " + tx("次");
     }).join("　");
 
-    var back = el("button", { className: "link-button", type: "button" }, [txt("backRanking")]);
-    back.addEventListener("click", function () {
-      setTab("ranking");
-    });
-
     dom.app.appendChild(el("section", { className: "panel" }, [
       el("div", { className: "person-head" }, [
-        back,
         el("h2", {}, [tx(state.selectedPerson)])
       ]),
       el("div", { className: "cards" }, [
@@ -995,7 +1028,6 @@
   function openPerson(name) {
     state.selectedPerson = name;
     state.tab = "person";
-    dom.globalSearch.value = tx(name);
     writeHash();
     render();
   }

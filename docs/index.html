@@ -15,7 +15,10 @@
       </div>
 
       <div class="header-tools">
-        <button id="langToggle" class="lang-toggle" type="button" aria-label="切換繁簡">繁 / 简</button>
+        <div id="langSwitch" class="lang-switch" role="group" aria-label="繁簡切換">
+          <button type="button" data-lang="trad">繁體中文</button>
+          <button type="button" data-lang="simp">简体中文</button>
+        </div>
         <div class="global-search">
           <label for="globalSearch">搜尋人名 / 團體</label>
           <input id="globalSearch" type="search" autocomplete="off" placeholder="例：蔡依林、五月天">
