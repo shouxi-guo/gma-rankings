@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>金曲獎資料庫 GMA Rankings</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="title-row">
+      <div>
+        <h1>金曲獎資料庫 GMA Rankings</h1>
+        <p class="subtitle">資料來源：文化部影視及流行音樂產業局開放資料</p>
+      </div>
+      <div class="global-search">
+        <label for="globalSearch">搜尋人名 / 團體</label>
+        <input id="globalSearch" type="search" autocomplete="off" placeholder="例：蔡依林、五月天">
+        <div id="suggestions" class="suggestions" hidden></div>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="主要檢視">
+      <button class="tab is-active" data-tab="ranking" type="button">排行榜</button>
+      <button class="tab" data-tab="person" type="button">個人頁</button>
+      <button class="tab" data-tab="edition" type="button">依屆次</button>
+      <button class="tab" data-tab="award" type="button">依獎項</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="status" class="status">載入資料中...</section>
+    <section id="app" hidden></section>
+  </main>
+
+  <footer>
+    <a href="https://data.gov.tw/dataset/58037">https://data.gov.tw/dataset/58037</a>
+    <span>本站為非官方資料整理，與主辦單位無關</span>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
