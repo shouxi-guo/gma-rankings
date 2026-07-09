@@ -35,7 +35,6 @@
     sortRate: "得獎率（僅入圍≥5）",
     onlyWins: "只看得獎紀錄",
     hideUnits: "隱藏公司/單位",
-    nameKeyword: "名字關鍵字",
     showMore: "顯示更多",
     totalRows: "共 {0} 筆統計；目前顯示 {1} 筆",
     rank: "排名",
@@ -100,8 +99,7 @@
       to: "",
       sort: "wins",
       winsOnly: false,
-      hideUnits: false,
-      name: ""
+      hideUnits: false
     }
   };
 
@@ -483,11 +481,7 @@
         checkField("rankHideUnits", txt("hideUnits"), filters.hideUnits, function (checked) {
           filters.hideUnits = checked;
           resetRanking();
-        }),
-        field(txt("nameKeyword"), inputControl("rankName", filters.name, tx("例：李榮浩"), function (value) {
-          filters.name = value;
-          resetRanking();
-        }))
+        })
       ]),
       el("div", { className: "summary" }, [
         format(txt("totalRows"), rows.length, visibleRows.length)
@@ -537,7 +531,6 @@
     var filters = state.rankingFilters;
     var from = Number(filters.from) || -Infinity;
     var to = Number(filters.to) || Infinity;
-    var nameNeedle = norm(filters.name);
     var map = new Map();
 
     state.records.forEach(function (record) {
@@ -564,9 +557,6 @@
           return;
         }
         if (filters.hideUnits && COMPANY_RE.test(name)) {
-          return;
-        }
-        if (nameNeedle && norm(name).indexOf(nameNeedle) === -1) {
           return;
         }
         if (!map.has(name)) {
@@ -667,7 +657,7 @@
           String(record.y || ""),
           awardLabel(record),
           tx(formatWork(record)),
-          tx(record.perf || ""),
+          tx(record.perf) || "—",
           tx(record.unit || ""),
           badge(record.win)
         ]);
@@ -821,7 +811,7 @@
       badge(record.win),
       personLink(record.who),
       tx(formatWork(record)),
-      tx(record.perf || ""),
+      tx(record.perf) || "—",
       tx(record.unit || "")
     ]);
     return tr;

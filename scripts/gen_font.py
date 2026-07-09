@@ -9,7 +9,10 @@ from pathlib import Path
 import subprocess, sys
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC_FONT = ROOT / "data" / "fonts" / "NotoSansTC-var.ttf"
+# full Noto Sans CJK TC (notofonts/noto-cjk) — unlike the Google Fonts
+# NotoSansTC build it also covers simplified-only codepoints, which the
+# simplified display mode needs
+SRC_FONT = ROOT / "data" / "fonts" / "NotoSansCJKtc-VF.otf"
 OUT = ROOT / "docs" / "fonts" / "NotoSansTC-sub.woff2"
 
 chars = set()
