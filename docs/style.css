@@ -940,4 +940,17 @@ footer a {
   .rank-1 { color: #f2c94c; }
   .rank-2 { color: #b8bec9; }
   .rank-3 { color: #d98e52; }
+
+  .panel {
+    border-color: var(--line);
+  }
+
+  .distribution,
+  .timeline {
+    color: var(--muted);
+  }
+
+  .trivia {
+    border-color: rgba(212, 160, 23, 0.35);
+  }
 }

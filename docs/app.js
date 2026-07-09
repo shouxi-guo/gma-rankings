@@ -467,6 +467,7 @@
 
   function render() {
     updateTabs();
+    tipHide();  // a chart tooltip must not survive a view switch
     if (state.tab === "person") {
       renderPerson();
     } else if (state.tab === "edition") {
@@ -864,6 +865,12 @@
   var SLOT_COLORS = ["var(--c1)", "var(--c2)", "var(--c3)", "var(--c4)", "var(--c5)"];
   var vizTip = null;
 
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
   function tipShow(evt, html) {
     if (!vizTip) {
       vizTip = document.createElement("div");
@@ -919,7 +926,10 @@
     var plotW = W - m.l - m.r, plotH = H - m.t - m.b;
     var sx = function (e) {
       var lo = eds[0].e, hi = eds[eds.length - 1].e;
-      return m.l + (e - lo) / Math.max(1, hi - lo) * plotW;
+      if (hi === lo) {
+        return m.l + plotW / 2;  // single edition: center the mark
+      }
+      return m.l + (e - lo) / (hi - lo) * plotW;
     };
     var sy = function (v) { return m.t + plotH - v / yMax * plotH; };
     var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img" });
@@ -997,7 +1007,7 @@
       });
     }
     // hover columns
-    var colW = f.plotW / Math.max(1, eds.length - 1);
+    var colW = eds.length > 1 ? f.plotW / (eds.length - 1) : f.plotW;
     eds.forEach(function (it, i) {
       var rect = svgEl("rect", {
         x: f.sx(it.e) - colW / 2, y: m.t, width: colW, height: f.plotH,
@@ -1005,7 +1015,7 @@
       rect.addEventListener("mousemove", function (evt) {
         var lines = series.map(function (s, si) {
           return "<span style='color:" + SLOT_COLORS[si] + "'>●</span> " +
-            tx(s.name) + "：" + s.values[i];
+            escapeHtml(tx(s.name)) + "：" + s.values[i];
         });
         tipShow(evt, "<strong>" + format(txt("editionFormat"), it.e, it.y) +
           "</strong>" + lines.join("<br>"));
@@ -1025,7 +1035,7 @@
     });
     var yMax = niceMax(Math.max.apply(null, totals));
     var f = chartFrame(W, H, m, eds, yMax);
-    var barW = Math.max(6, f.plotW / eds.length * 0.66);
+    var barW = Math.min(48, Math.max(6, f.plotW / eds.length * 0.66));
 
     eds.forEach(function (it, i) {
       var acc = 0;
@@ -1044,7 +1054,7 @@
       hit.addEventListener("mousemove", function (evt) {
         var lines = series.map(function (s, si) {
           return s.values[i] ? "<span style='color:" + SLOT_COLORS[si] + "'>■</span> " +
-            tx(s.name) + "：" + s.values[i] : "";
+            escapeHtml(tx(s.name)) + "：" + s.values[i] : "";
         }).filter(Boolean);
         tipShow(evt, "<strong>" + format(txt("editionFormat"), it.e, it.y) +
           "（" + totals[i] + "）</strong>" + lines.join("<br>"));
@@ -1057,8 +1067,13 @@
 
   function renderStats() {
     clear(dom.app);
-    tipHide();
     var eds = state.editions;
+    if (!eds.length) {
+      dom.app.appendChild(el("section", { className: "panel empty" }, [
+        el("p", {}, [txt("empty")])
+      ]));
+      return;
+    }
     var byE = {};
     state.records.forEach(function (r) { (byE[r.e] = byE[r.e] || []).push(r); });
 
@@ -1146,30 +1161,32 @@
     var topUnit = units.sort(function (a, b) { return b.wins - a.wins; })[0];
     if (topUnit) facts.push(topUnit.name + " 是得獎最多的公司/單位，共 " +
       topUnit.wins + " 座");
-    // single-edition sweep
+    // single-edition sweep: count DISTINCT awards won per person per edition
     var sweep = {};
     state.records.forEach(function (record) {
       if (!record.win) return;
       unique(splitPeople(record.who).concat(splitPerf(record.perf))).forEach(function (name) {
         if (!name || name === "從缺" || COMPANY_RE.test(name)) return;
         var key = name + "@" + record.e;
-        sweep[key] = (sweep[key] || 0) + 1;
+        (sweep[key] = sweep[key] || new Set()).add(record.aid);
       });
     });
-    var best = Object.keys(sweep).sort(function (a, b) { return sweep[b] - sweep[a]; })[0];
-    if (best && sweep[best] >= 3) {
+    var best = Object.keys(sweep).sort(function (a, b) {
+      return sweep[b].size - sweep[a].size;
+    })[0];
+    if (best && sweep[best].size >= 3) {
       var parts = best.split("@");
       facts.push("第 " + parts[1] + " 屆 " + parts[0] + " 一舉抱回 " +
-        sweep[best] + " 座獎，堪稱大贏家");
+        sweep[best].size + " 座獎，堪稱大贏家");
     }
+    var edCount = {};
+    state.records.forEach(function (r) { edCount[r.e] = (edCount[r.e] || 0) + 1; });
     var busiest = state.editions.slice().sort(function (a, b) {
-      return state.records.filter(function (r) { return r.e === b.e; }).length -
-        state.records.filter(function (r) { return r.e === a.e; }).length;
+      return (edCount[b.e] || 0) - (edCount[a.e] || 0);
     })[0];
     if (busiest) {
-      var n = state.records.filter(function (r) { return r.e === busiest.e; }).length;
-      facts.push("第 " + busiest.e + " 屆（" + busiest.y + "）共有 " + n +
-        " 筆入圍紀錄，是史上規模最大的一屆");
+      facts.push("第 " + busiest.e + " 屆（" + busiest.y + "）共有 " +
+        (edCount[busiest.e] || 0) + " 筆入圍紀錄，是史上規模最大的一屆");
     }
     facts.push("本資料庫共收錄 " + state.records.length + " 筆入圍/得獎紀錄、" +
       state.records.filter(function (r) { return r.win; }).length + " 座獎");
@@ -1184,6 +1201,7 @@
     var text = el("p", {}, [tx("金曲冷知識：" + state.trivia[state.triviaIdx])]);
     var more = el("button", { type: "button" }, [txt("triviaMore")]);
     more.addEventListener("click", function () {
+      if (state.trivia.length < 2) return;
       state.triviaIdx = (state.triviaIdx + 1 +
         Math.floor(Math.random() * (state.trivia.length - 1))) % state.trivia.length;
       renderRanking();
@@ -1194,21 +1212,43 @@
 
   /* ── 複製連結 / 生涯時間線 ─────────────────────────────── */
 
+  function legacyCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
   function copyLinkButton() {
     var button = el("button", { className: "copy-link", type: "button" }, [txt("copyLink")]);
     button.addEventListener("click", function () {
+      var url = window.location.href;
       var done = function () {
         button.textContent = txt("copied");
         setTimeout(function () { button.textContent = txt("copyLink"); }, 1500);
       };
+      var fallback = function () {
+        if (legacyCopy(url)) done();
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(window.location.href).then(done, done);
+        navigator.clipboard.writeText(url).then(done, fallback);
+      } else {
+        fallback();
       }
     });
     return button;
   }
 
   function careerTimeline(records) {
+    if (!records.length) {
+      return document.createTextNode("");
+    }
     var eds = records.map(function (r) { return r.e; });
     var lo = Math.min.apply(null, eds), hi = Math.max.apply(null, eds);
     lo = Math.max(1, lo - 1);
