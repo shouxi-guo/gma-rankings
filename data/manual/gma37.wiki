@@ -1,0 +1,1002 @@
+{{For|獎勵傳統暨藝術音樂、戲曲表演的傳藝獎|第37屆傳藝金曲獎}}
+{{Infobox award
+| name = 第37屆金曲獎<br /><span style="font-size:small;">{{lang|en|The 37th Golden Melody Awards}}</span>
+| subheader = 
+| image = <!-- 檔案不存在 File:37th Golden Melody Awards.jpg ，可從英文維基百科取得 -->
+| imagesize = 
+| caption = 
+| presenter = {{nowrap|[[文化部影視及流行音樂產業局]]}}
+| host = [[A-Lin]]
+| preshow_host = [[陳明珠]]、[[呂思緯]]
+| date = 2026年6月27日
+| location = [[台北小巨蛋]]
+| country = [[中華民國]]（[[臺灣]]）
+| network = [[臺灣電視台]]
+| radio = 
+| runtime = 4小時39分
+| previous = [[第36屆金曲獎|第36屆]]
+| next = [[第38屆金曲獎|第38屆]]
+| most_awards = {{Plainlist}}
+*[[蔡依林|JOLIN蔡依林]]《[[Pleasure (蔡依林專輯)|Pleasure]]》
+*[[張震嶽]]《跟著感覺走》
+*（3項）
+{{endplainlist}}
+| most_nominations = [[蔡依林|JOLIN蔡依林]]《[[Pleasure (蔡依林專輯)|Pleasure]]》（9項）
+{{endplainlist}}
+| main = [[金曲獎]]
+| website = 
+}}
+
+'''第37屆[[金曲獎]]'''（{{langx|en|The 37th Golden Melody Awards}}），由[[中華民國|中华民国]][[文化部影視及流行音樂產業局]]主辦。頒獎典禮於2026年6月27日在[[台北小巨蛋]]舉行。
+
+== 播放平台 ==
+{{NoteUTC+8}}
+{| class="wikitable" style="text-align:center"
+|-
+!頻道||所在地區||播出時間||style="width: 200px;"|備註
+|-
+|colspan=5|'''首播'''
+|-
+|[[臺灣電視台]]||rowspan=2|[[臺灣]]||rowspan=8|2026年6月27日<br />17:00—19:00（星光大道）<br/>19:00—23:39（頒獎典禮）|| rowspan="4" |電視現場直播
+|-
+|[[中華電信MOD]]
+|-
+|[[HUB都会台]]||[[新加坡]]
+|-
+|[[Astro QJ]]||[[馬來西亞]]
+|-
+|[[YouTube]]金曲頻道||全世界||rowspan=3|網路平台直播
+|-
+|LINE TODAY<BR/>LINE MUSIC|| rowspan="2" |臺灣
+|-
+|金曲APP
+|-
+|{{link-en|Sling TV|Sling TV}}||[[北美]]<br/>（[[美國]]、[[加拿大]]）||台視美洲頻道
+|-
+|}
+
+== 報名與評選概況 ==
+本屆金曲獎自2025年12月1日起至2026年1月2日開放報名，2025年發行之作品均可參賽<ref name="文化部2024">{{cite web|url=https://www.bamid.gov.tw/News_Content.aspx?n=3482&s=246715|title=第37屆金曲獎12月1日開始報名|website=文化部影視及流行音樂產業局|language=zh-tw|date=2025-11-18|access-date=2026-05-13}}</ref>。特別貢獻獎推薦時間則至2026年3月13日。本屆金曲獎起新增規定，生成式AI軟體得做為輔助音樂創作及製作流程之工具，惟報名作品中全部由AI生成之部分（例如曲、歌詞、編曲、人聲等）不得參賽該類獎項。<ref>{{cite news | title=第 37 屆台灣金曲獎修訂參賽資格 全 AI 生成作品將被 DQ | website=Unwire | date=2025-11-21 | url=https://unwire.hk/2025/11/21/golden-melody-awards-ai-rules-ban/mobile-music/headphones/ | language=zh-hk }}</ref>
+
+本屆入圍名單於5月13日公布，其中[[蔡依林]]的《[[Pleasure (蔡依林專輯)|Pleasure]]》入圍9項為最多，報名單位則以[[華納國際音樂股份有限公司]]入圍16項為最多<ref>{{cite news |title=第37屆金曲獎入圍名單公布：蔡依林入圍9項領跑，與洪佩瑜、陳嫺靜、彭佳慧爭后冠 |url=https://www.thenewslens.com/article/267619 |work=關鍵評論網 |date=2026-05-13 |language=zh-tw}}</ref>。入圍遺珠方面，評審團主席黃韻玲表示[[林宥嘉]]、[[陶喆]]、[[曾沛慈]]，分別在最佳華語男、女歌手獎項評審過程中其實皆有討論到好幾輪，但最終仍要回歸評審機制，而最終產生這次入圍名單結果出來<ref>{{cite news |title=金曲37遺珠不少　林宥嘉、陶喆及曾沛慈皆落榜 |url=https://www.mirrormedia.mg/story/20260513-228ent-150737 |work=鏡週刊 |date=2026-05-13 |language=zh-tw}}</ref>。
+
+最終獎項得主評選過程，評審團主席[[黃韻玲]]在頒獎典禮後向媒體詳細說明，在最佳台語女歌手獎、最佳客語專輯獎、最佳單曲製作人獎，皆有討論進入至第三輪才決定得主，台語女歌手是[[鄭宜農]]差距[[吳蓓雅]]些微票數，客語專輯是[[春麵樂隊]]和[[陳以諾]]差距[[黃宇寒]]些微票數。在最佳演唱組合獎和最佳樂團獎有討論進入至第二輪才決定得主，最佳演唱組合獎[[幻藍小熊]]多餘[[頑童MJ116]]四票勝出，最佳樂團獎[[落日飛車]]多餘[[漂流出口]]二票勝出；其餘各項獎項大多數皆在第一輪時即決定勝出得主<ref>{{cite news |title=金曲37／黃韻玲公開評審內幕！蔡依林首輪勝出封后　白冰冰擦身原因曝光 |url=https://star.setn.com/news/1863370 |work=娛樂星聞-音樂 |date=2026-06-28 |language=zh-tw}}</ref><ref>{{cite news |title=金曲 37】金曲 37 評審團主席黃韻玲講解評選過程 |url=https://www.youtube.com/watch?v=tJPG_818FXQ |work=YouTube-一起追星去 Party Star Media
+ |date=2026-06-28 |language=zh-tw}}</ref>。
+
+== 舉辦過程 ==
+
+=== 日程 ===
+
+* 獎項報名日期：2025年12月1日至2026年1月2日下午5時30分
+* 公布入圍名單：2026年5月13日
+* 頒獎典禮：2026年6月27日下午7時00分
+
+=== 人物（地點） ===
+==== 主席 ====
+* 金曲獎評審團主席：[[黃韻玲]]
+==== 主持與旁白串場 ====
+* 入圍名單公布記者會主持人：[[鄔凱雯]]
+* 入圍名單公布記者會「評審團」得主揭曉人：[[黃韻玲]]
+* 星光大道主持人：[[陳明珠]]、[[呂思緯]]
+* 頒獎典禮主持人：[[A-Lin]]
+* 典禮廣告時段主持人：[[林葦妮|木木]]
+* 頒獎典禮入圍影片旁白：[[黃子軒]]、[[戴曉君]] 、[[呂士軒]]、[[李竺芯]]
+* 司儀：賀正邦
+* 遞獎大使：[[Ozone (台灣團體)|Ozone]]（[[周祖安]]、[[周子翔]]、[[黃文廷]]、[[林佳辰]]、[[林煥鈞]]、[[李哲言]]）
+* 頒獎地點：[[臺北市]][[臺北小巨蛋]]
+
+==== 影像及音樂編製 ====
+* 「金曲37」平面主視覺：StudioPros 優仕創意
+* 「金曲37」動態視覺及典禮視覺統籌：曜星三一
+* 頒獎典禮和星光大道音樂 ：[[陳星翰]]、鄭人豪、呂諾
+
+== 評審團 ==
+評審團主席：[[黃韻玲]]
+
+=== 演唱類 ===
+{| class="wikitable sortable" style="text-align: center;" border="2" cellpadding="4"
+!style="width: 50px;"|資格審
+!style="width: 40px;"|初選
+!style="width: 40px;"|複選
+!style="width: 40px;"|決選
+!class="unsortable"|評審委員
+|-
+|data-sort-value="0"|{{Y}}
+|data-sort-value="1"|{{Y}}
+|data-sort-value="1"|{{Y}}
+|data-sort-value="0"|{{Y}}
+|style="text-align: left;"|陳冠亨
+|-
+|data-sort-value="1"|{{Y}}
+|data-sort-value="0"|{{N}}
+|data-sort-value="0"|{{N}}
+|data-sort-value="0"|{{N}}
+|style="text-align: left;"|林可威、紀明陽
+|-
+|data-sort-value="1"|{{Y}}
+|data-sort-value="1"|{{Y}}
+|data-sort-value="0"|{{N}}
+|data-sort-value="0"|{{N}}
+|style="text-align: left;"|葉雲平、魯維孝
+|-
+|data-sort-value="0"|{{N}}
+|data-sort-value="1"|{{Y}}
+|data-sort-value="0"|{{N}}
+|data-sort-value="0"|{{N}}
+|style="text-align: left;"|[[9m88]]、Bryan 布萊恩、 [[何欣穗|ciacia 何欣穗]]、DJ Dennis（[[區耕祥]]）、林哲儀（DJ Mykal）、Everydaze 王宥盛、[[林如琦]]（GiGi）、[[蔣卓嘉|GJ蔣卓嘉]]、W.LIN 韋恩林、丁度嵐、-{于}-京延、孔勝民、牙牙 吳貞儀、[[王彙筑]]、王福怡、[[王雙駿]]、謝宗廷（生命樹_小王子）、朱凱、朱源輝、[[江美琪]]、[[江惠儀]]、何宗霖、何昇勳、吳育澤、[[吳易緯]]、[[吳蒙惠]]、吳聲緯、呂致廷、呂理傑（DJ 丹尼）、[[李欣芸]]、李雨寰、[[周佳佑]]、周祐楷、林太崴、林奕碩、林樂偉、邱培榮、邱淑蟬、[[邵大倫]]、陳彥豪（阿舌）、[[凃惠源]]、[[施人誠]]、[[柔米Zoomie]]、袁偉翔、[[張宇]]、梁岱琦、[[小樹|陳弘樹]]、陳玉能、[[陳君豪]]、陳俊菖、陳威宇、陶婉玲、陶逸群、[[雅維·茉芮]]、[[黃子軒]]、楊鈞堯、[[趙之璧]]、[[舞思愛]]、趙家駒、[[劉偉德]]、蔡政勳、[[蔡家蓁]]、[[蕭賀碩]]、鍾濰宇、聶琳、羅思容、羅智輝、[[欒克勇]]
+|-
+|data-sort-value="0"|{{N}}
+|data-sort-value="1"|{{Y}}
+|data-sort-value="1"|{{Y}}
+|data-sort-value="1"|{{Y}}
+|style="text-align: left;"|2-CHI、呂尚霖、李百罡、李漢群、林志仁（高潮）、阿福、[[保卜|保卜‧巴督路]]、[[孫淑媚]]、[[孫盛希]]、[[陳宏宇 (作詞人)|陳宏宇]]、陳飛午、[[黃玠瑋]]、[[楊子樸]]、葉雲甫、[[蔡坤奇]]、[[戴曉君]]、[[謝銘祐|鍾永豐]]、[[謝銘祐]]、[[羅文裕 (歌手)|羅文裕]]
+|}
+
+=== 演奏類 ===
+召集人：盧律銘
+{| class="wikitable" style="text-align: center;" border="2" cellpadding="4"
+!style="width: 35px;"|初選
+!style="width: 35px;"|複選
+!style="width: 35px;"|決選
+!style="width: 530px;"|評審委員
+|-
+|{{Y}}
+|{{Y}}
+|{{Y}}
+|style="text-align: left;"|[[盧律銘]]、{{Link-yue|余佳倫|余佳倫}}、{{Link-yue|金木義則|金木義則}}、洪筠惠、[[彭郁雯]]、楊又臻、魯千千、盧思蒨
+|-
+|{{Y}}
+|{{Y}}
+|{{N}}
+|style="text-align: left;"|黃少雍
+|}
+
+==== 錄音專輯類 ====
+召集人：林尚德
+{| class="wikitable" style="text-align: center;" border="2" cellpadding="4"
+!style="width: 35px;"|初選
+!style="width: 35px;"|複選
+!style="width: 35px;"|決選
+!style="width: 530px;"|評審委員
+|-
+|{{Y}}
+|{{Y}}
+|{{Y}}
+|style="text-align: left;"|林尚德、李志倫、[[李端嫻]]、谷田茂、郭遠洲、陳以霖、陳建良、黃俊憲、鄭平
+|}
+
+=== MV類 ===
+召集人：劉思銘
+{| class="wikitable" style="text-align: center;" border="2" cellpadding="4"
+!style="width: 35px;"|初選
+!style="width: 35px;"|複選
+!style="width: 35px;"|決選
+!style="width: 530px;"|評審委員
+|-
+|{{Y}}
+|{{Y}}
+|{{N}}
+|style="text-align: left;"|劉熙真
+|-
+|{{Y}}
+|{{Y}}
+|{{Y}}
+|style="text-align: left;"|劉思銘、[[左光平]]、林錦和、張藍云、郭晉汝、[[陳奕仁]]、[[黃中平]]、黃婕妤
+|}
+
+=== 裝幀設計類 ===
+召集人：葛大為
+{| class="wikitable" style="text-align: center;" border="2" cellpadding="4"
+!style="width: 35px;"|初選
+!style="width: 35px;"|複選
+!style="width: 35px;"|決選
+!style="width: 530px;"|評審委員
+|-
+|{{Y}}
+|{{Y}}
+|{{Y}}
+|style="text-align: left;"|[[葛大為]]、-{于}-薇、李懿宸、馬佩芬、梁碩麟、黃家賢、廖小子、[[優席夫]]、羅文岑
+|}
+
+=== 特別貢獻獎 ===
+召集人：[[李建復]]
+{| class="wikitable" border="2" cellpadding="4"
+!委員會成員
+|-
+| {{Link-yue|何燕玲|何燕玲}}、周-{恒}-毅、[[馬世芳]]、[[陳子鴻]]、[[陳玉貞]]、[[黃韻玲]]
+|}
+
+== 入圍暨得獎名單 ==
+{|
+| style="font-weight:bold;"|{{nowrap|以[[File:Yellow Dots Golden.svg|22px|boeder=none|link=金曲獎]]表示得獎者}}
+|}
+<ref>[https://www.bamid.gov.tw/News_Content.aspx?n=3483&s=255247　第37屆金曲獎流行音樂類入圍名單].文化部影視及流行音樂產業局.2026-05-13</ref><ref>[https://www.bamid.gov.tw/News_Content.aspx?n=3483&s=257991　第37屆金曲獎流行音樂類得獎名單].文化部影視及流行音樂產業局.2026-06-27</ref>
+
+=== 演唱類【出版獎】 ===
+==== [[年度專輯獎 (金曲獎)|年度專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍專輯 !! style="width: 440px;"|演唱 !! 報名單位
+|-
+|||《[[開 (專輯)|開]]》||[[洪佩瑜]]||何樂音樂有限公司
+|- style="background-color:#f0f0f0;"
+|||《OGS》||[[頑童MJ116]]||滾石國際音樂股份有限公司
+|-
+|||《跟著感覺走》||[[張震嶽]]||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+| [[File:Yellow Dots Golden.svg|22px|boeder=none|link=金曲獎]] ||《[[Pleasure (蔡依林專輯)|Pleasure]]》||[[蔡依林|JOLIN蔡依林]]{{NoteTag|蔡依林以JOLIN蔡依林名義報名。}}||華納國際音樂股份有限公司
+|-
+|||《離開銀色荒原》||[[裘德]]||亞神音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《純妹妹》||[[單依純]]||禾聲文化娛樂有限公司
+|-
+|||《[[圓缺]]》||[[鄭宜農]]||邊走邊聽有限公司
+|- style="background-color:#f0f0f0;"
+|||《做一個惜情軟心的人》||[[蕭煌奇]]||華納國際音樂股份有限公司
+|-
+|||《主題歌》||[[蘇明淵]]||台灣索尼音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《褪褲lān的兄弟》||[[吳永吉]]||風潮音樂國際股份有限公司
+|-
+|||《我說》||CJ MiT||滾石移動股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《南方的冬》||阿依·羅||禾廣娛樂股份有限公司
+|-
+|||《Final Girl》||ana||東城音樂製作有限公司
+|- style="background-color:#f0f0f0;"
+|||《下回上去》||春麵樂隊||荒島文化有限公司
+|-
+|||《慢花誌》||[[陳以諾|陳以諾Sarah]]||環球國際唱片股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《Ngai》||[[黃宇寒]]||予浪創樂股份有限公司
+|-
+|||《Masonolay i Cepo'》||漂流出口||風潮音樂國際股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《Saitikotiko》||高金龍 Lawis Aow||嗨島文化有限公司
+|-
+|||《AKA》||Arase 阿拉斯||那屋瓦文化有限公司
+|- style="background-color:#f0f0f0;"
+|||《Mikerid 引路》||[[舒米恩|Suming 舒米恩]]||米大創意有限公司
+|-
+|||《djekuacan 年少不努力》||[[Matzka]]||十一音像有限公司（十一音樂）
+|- style="background-color:#f0f0f0;"
+|||《Same Stories, Different Narratives》||[[鶴 The Crane]]||落夢地股份有限公司
+|-
+|||《QUIT QUIETLY》||[[落日飛車]]||夕陽音樂產業有限公司
+|}
+
+==== [[年度歌曲獎 (金曲獎)|年度歌曲獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍歌曲 !! 演唱 !! 作曲 !! 作詞 !! 收錄專輯 !! 報名單位
+|-
+|||三菜一湯 In the Middle||楊世暄||楊世暄||楊世暄||《普通活著 Daily Diner》||有趣的形狀工作室
+|- style="background-color:#f0f0f0;"
+|||浪人的...||[[張震嶽]]||[[張震嶽]]||[[張震嶽]]||《跟著感覺走》||滾石國際音樂股份有限公司
+|-
+|||[[Pleasure (蔡依林歌曲)|Pleasure]]||[[蔡依林|JOLIN蔡依林]]||[[蔡依林|JOLIN蔡依林]]、Ross Golan、Richard Craker、[[王永良]]、Valentina Ploy||[[蔡依林|JOLIN蔡依林]]、Ross Golan、Richard Craker、[[王永良]]、Valentina Ploy||《[[Pleasure (蔡依林專輯)|Pleasure]]》||華納國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||老翅膀||[[陳小霞]]||[[陳小霞]]||[[姚若龍]]||《老翅膀》||華研國際音樂股份有限公司
+|-
+|||如果每天都可以 happy happy 誰想要sad:))||[[陳嫺靜]]||[[陳嫺靜]]||[[陳嫺靜]]||《如果每天都可以happy happy 誰想要sad:)) – 一起去度假》||顏社企業有限公司
+|- style="background-color:#f0f0f0;"
+|||我的存在就是愛你||[[張惠妹]]||[[Shawn尚融]]、呂尚霖、雅妮||[[小寒]]||《我的存在就是愛你》||百代唱片股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||幸福在歌唱||[[A-Lin]]||李方睿||[[林孝謙]]||《幸福在歌唱<small>（電影《[[陽光女子合唱團]]》幸福版主題曲）</small>》||-{众}-悅娛樂有限公司
+|}
+
+==== [[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ; 
+! width="30" |  !! 入圍專輯 !! 演唱 !! 報名單位
+|-
+|||《[[開 (專輯)|開]]》||[[洪佩瑜]]||何樂音樂有限公司
+|- style="background-color:#f0f0f0;"
+|||《OGS》||[[頑童MJ116]]||滾石國際音樂股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||《跟著感覺走》||[[張震嶽]]||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《[[Pleasure (蔡依林專輯)|Pleasure]]》||[[蔡依林|JOLIN蔡依林]]||華納國際音樂股份有限公司
+|-
+|||《離開銀色荒原》||[[裘德]]||亞神音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《純妹妹》||[[單依純]]||禾聲文化娛樂有限公司
+|}
+
+==== [[最佳台語專輯獎 (金曲獎)|最佳台語專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ; 
+! width="30" |  !! 入圍專輯 !! 演唱 !! 報名單位
+|-
+|||《[[圓缺]]》||[[鄭宜農]]||邊走邊聽有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||《做一個惜情軟心的人》||[[蕭煌奇]]||華納國際音樂股份有限公司
+|-
+|||《主題歌》||[[蘇明淵]]||台灣索尼音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《褪褲lān的兄弟》||[[吳永吉]]||風潮音樂國際股份有限公司
+|-
+|||《我說》||CJ MiT||滾石移動股份有限公司
+|}
+
+==== [[最佳客語專輯獎 (金曲獎)|最佳客語專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ; 
+! width="30" |  !! 入圍專輯 !! 演唱 !! 報名單位
+|-
+|||《南方的冬》||阿依·羅||禾廣娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《Final Girl》||ana||東城音樂製作有限公司
+|-
+|||《下回上去》||春麵樂隊||荒島文化有限公司
+|- style="background-color:#f0f0f0;"
+|||《慢花誌》||[[陳以諾|陳以諾Sarah]]||環球國際唱片股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||《Ngai》||[[黃宇寒]]||予浪創樂股份有限公司
+|}
+
+==== [[最佳原住民語專輯獎 (金曲獎)|最佳原住民語專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ; 
+! width="30" |  !! 入圍專輯 !! 演唱 !! 報名單位
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||《Masonolay i Cepo'》||漂流出口||風潮音樂國際股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《Saitikotiko 一次又一次》||高金龍 Lawis Aow||嗨島文化有限公司
+|-
+|||《AKA》||Arase 阿拉斯||那屋瓦文化有限公司
+|- style="background-color:#f0f0f0;"
+|||《Mikerid 引路》||[[舒米恩|Suming 舒米恩]]||米大創意有限公司
+|-
+|||《djekuacan 年少不努力》||[[Matzka]]||十一音像有限公司（十一音樂）
+|}
+
+=== 演唱類【個人獎】 ===
+==== [[最佳作曲人獎 (金曲獎)|最佳作曲人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者／作品 !!演唱／收錄專輯 !! 報名單位
+|-
+|||[[盧律銘]]／大濛的暗眠||[[9m88]]／《〈[[大濛]]〉電影原聲帶》||黑馬映像電影有限公司
+|- style="background-color:#f0f0f0;"
+|||[[蕭煌奇]]、[[Diiton滴燙|滴燙 Diiton]]／你攏無咧看||蕭煌奇／《做一個惜情軟心的人》||華納國際音樂股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[張震嶽]]／浪人的...||張震嶽／《跟著感覺走》||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[張簡君偉]]／數到十||[[曾沛慈]]／《[[下週同樣時間]]》||華研國際音樂股份有限公司
+|-
+|||[[黃奇斌]]／若無你我欲去佗位||黃奇斌／《若無你我欲去佗位》||環球國際唱片股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[裘德]]／銀色荒原||裘德／《離開銀色荒原》||亞神音樂娛樂股份有限公司
+|}
+
+==== [[最佳作詞人獎 (金曲獎)|最佳作詞人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者／作品 !!演唱／收錄專輯 !! 報名單位
+|-
+|||[[張震嶽]]／媽媽的眼睛||張震嶽／《跟著感覺走》||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[小寒 (填詞人)|小寒]]／成人之美||[[彭佳慧]]／《完整的大人》||台灣索尼音樂娛樂股份有限公司
+|-
+|||武雄／礦工兄弟||[[吳永吉]]／《褪褲lān的兄弟》||風潮音樂國際股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[Gummy B|黃立堯]]／WAR & LUV||Gummy B／《更好》||夜間限定有限公司
+|-
+|||[[李格弟]]／銀色荒原||[[裘德]]／《離開銀色荒原》||亞神音樂娛樂股份有限公司
+|}
+
+==== [[最佳編曲人獎 (金曲獎)|最佳編曲人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者／作品 !!演唱／收錄專輯 !! 報名單位
+|-
+|||翁光煒／厭倦一個人旅行||aDAN薛詒丹／《孤獨金魚圖鑑》||伊丹有限公司
+|- style="background-color:#f0f0f0;"
+|||[[周湯豪]]、Seann Bowe、韋恩林、Ruben Cardenas／FLAMES||周湯豪／《[[LOVE RAGE HOPE]]》||環球國際唱片股份有限公司
+|-
+|||[[陳星翰]]、[[鄭人豪]]、[[馬仕釗|Morrison Ma]]、[[黃慶原|CYH]]、Richard Craker、Jackson Dimiglio-Wood／[[DIY (歌曲)|DIY]]||[[蔡依林|JOLIN蔡依林]]／《[[Pleasure (蔡依林專輯)|Pleasure]]》||華納國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[黃宣|YELLOW黃宣]]／輕功水上飄||YELLOW黃宣／《輕功水上飄》||否極泰來音樂股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[裘德]]、[[崔展鴻]]／銀色荒原||裘德／《離開銀色荒原》||亞神音樂娛樂股份有限公司
+|}
+
+==== [[最佳專輯製作人獎 (金曲獎)|最佳專輯製作人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品 !!演唱!! 報名單位
+|-
+|||[[蕭賀碩]]||《來了》||[[巴奈·庫穗|巴奈]]||碩果音樂工作室
+|- style="background-color:#f0f0f0;"
+|||[[鶴 The Crane]]||《Same Stories, Different Narratives》||鶴 The Crane||落夢地股份有限公司
+|-
+|||王昱辰、曾國宏||《QUIT QUIETLY》||[[落日飛車]]||夕陽音樂產業有限公司
+|- style="background-color:#f0f0f0;"
+|||[[蔡依林|JOLIN蔡依林]]、[[陳星翰]]||《[[Pleasure (蔡依林專輯)|Pleasure]]》||JOLIN蔡依林||華納國際音樂股份有限公司
+|-
+|||[[裘德]]、伍棟賢(Tonyi NG)||《離開銀色荒原》||裘德||亞神音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[常石磊]]||《純妹妹》||[[單依純]]||禾聲文化娛樂有限公司
+|}
+
+==== [[最佳單曲製作人獎 (金曲獎)|最佳單曲製作人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品 !!演唱!! 收錄專輯 !! 報名單位
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[ØZI]]、[[鶴 The Crane]]||FINAL FINAL FINAL</small>||ØZI、Gummy B、鶴 The Crane||《SWIRL》||華納國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||Kvnloverboy||Superwoman||[[Karencici]]||《Superwoman》||華納國際音樂股份有限公司
+|-
+|||[[黃宣|YELLOW黃宣]]、余佳倫||輕功水上飄||YELLOW黃宣||《輕功水上飄》||否極泰來音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[陳建騏]]||幸福在歌唱||[[A-Lin]]||《幸福在歌唱<small>（電影《[[陽光女子合唱團]]》幸福版主題曲）</small>》||-{众}-悅娛樂有限公司
+|-
+|||[[陳君豪]]、[[吳青峰]]||一念之間－在水中||吳青峰、[[齊豫]]||《一念之間》||台灣索尼音樂娛樂股份有限公司
+|}
+
+==== [[最佳華語男歌手獎 (金曲獎)|最佳華語男歌手獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[張震嶽]]||《跟著感覺走》||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[周湯豪]]||《[[LOVE RAGE HOPE]]》||環球國際唱片股份有限公司 
+|-
+|||[[盧廣仲]]||《[[傷心早餐店|HeartBreakFast 傷心早餐店]]》||添翼創越工作室
+|- style="background-color:#f0f0f0;"
+|||[[Gummy B]]||《更好》||夜間限定有限公司
+|-
+|||[[裘德]]||《離開銀色荒原》||亞神音樂娛樂股份有限公司
+|}
+
+==== [[最佳華語女歌手獎 (金曲獎)|最佳華語女歌手獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|||[[洪佩瑜]]||《[[開 (專輯)|開]]》||何樂音樂有限公司
+|- style="background-color:#f0f0f0;"
+|||[[陳嫺靜]]||《如果每天都可以happy happy 誰想要sad:＊- 合作的秘密》||顏社企業有限公司
+|-
+|||[[彭佳慧]]||《完整的大人》||台灣索尼音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[蔡依林|JOLIN蔡依林]]||《[[Pleasure (蔡依林專輯)|Pleasure]]》||華納國際音樂股份有限公司
+|-
+|||[[劉艾立]]||《雙魚宮》||完美伙伴有限公司
+|- style="background-color:#f0f0f0;"
+|||[[單依純]]||《純妹妹》||禾聲文化娛樂有限公司
+|}
+
+==== [[最佳台語男歌手獎 (金曲獎)|最佳台語男歌手獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[蕭煌奇]]||《做一個惜情軟心的人》||華納國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[吳永吉]]||《褪褲lān的兄弟》||風潮音樂國際股份有限公司
+|-
+|||[[曾瑋中]]||《頇顢》||時代創藝企業有限公司
+|- style="background-color:#f0f0f0;"
+|||周自從||《人造人間》||火氣音樂股份有限公司
+|-
+|||CJ MiT||《我說》||滾石移動股份有限公司
+|}
+
+==== [[最佳台語女歌手獎 (金曲獎)|最佳台語女歌手獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|||[[鄭宜農]]||《[[圓缺]]》||邊走邊聽有限公司
+|- style="background-color:#f0f0f0;"
+|||[[陳怡婷]]||《三十幾》||時代創藝企業有限公司
+|-
+|||[[秀蘭瑪雅]]||《鐵心肝》||乾坤影視傳播有限公司
+|- style="background-color:#f0f0f0;"
+|||[[白冰冰]]||《喝酒講酒話》||長興影視有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[吳蓓雅|PiA吳蓓雅]]||《離婚初體驗》|| 吳蓓雅工作室有限公司
+|}
+
+==== [[最佳客語歌手獎 (金曲獎)|最佳客語歌手獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|||阿依·羅||《南方的冬》||禾廣娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||ana||《Final Girl》||東城音樂製作有限公司
+|-
+|||春麵樂隊||《下回上去》||荒島文化有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[陳以諾|陳以諾Sarah]]||《慢花誌》||環球國際唱片股份有限公司
+|-
+|||[[黃宇寒]]||《Ngai》||予浪創樂股份有限公司
+|}
+
+==== [[最佳原住民語歌手獎 (金曲獎)|最佳原住民語歌手獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|||高金龍 Lawis Aow||《Saitikotiko 一次又一次》||嗨島文化有限公司
+|- style="background-color:#f0f0f0;"
+|||Arase 阿拉斯||《AKA》||那屋瓦文化有限公司
+|-
+|||查勞·巴西瓦里||《Kami Kami 我們我們》||角頭文化事業股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[舒米恩|Suming 舒米恩]]||《Mikerid 引路》||米大創意有限公司
+|-
+|||[[Matzka]]||《djekuacan 年少不努力》||十一音像有限公司（十一音樂）
+|}
+
+==== [[最佳樂團獎 (金曲獎)|最佳樂團獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|||[[icyball冰球樂團]]（王、Nelson、蒙、士捷）||《我很抱歉》||何樂音樂有限公司
+|- style="background-color:#f0f0f0;"
+|||漂流出口（巫尚．碧海、布妲菈．碧海、林肯）||《Masonolay i Cepo'》||風潮音樂國際股份有限公司
+|-
+|||[[老王樂隊]]（張立長、廖潔民、馮會元、邵佳瑩、童偉碩）||《暮夜徐行》||壞鄰居有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[落日飛車]]（羅尊龍、陳弘禮、王少軒、黃浩庭、曾國宏）||《QUIT QUIETLY》||夕陽音樂產業有限公司
+|-
+|||[[告五人]]（犬青、雲安、哲謙）||《我們就像那些要命的傻瓜》||相信音樂國際股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[甜約翰]]（吳浚瑋、梁丹郡、陳冠宇、鍾曜年）||《GOOD AFTERNIGHT》||歪的音樂有限公司
+|-
+|||[[Tizzy Bac]]（陳惠婷、林前源）||《說出我的名字》||相信音樂國際股份有限公司
+|}
+
+==== [[最佳演唱組合獎 (金曲獎)|最佳演唱組合獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+|||[[頑童MJ116]]（[[瘦子E.SO]]、[[小春|小春 Kenzy]]、[[大淵MUTA]]）||《OGS》||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[GENBLUE|GENBLUE 幻藍小熊]]（[[王心茗|XXIN]]、[[許媛媛|媛媛]]、[[李娥妍|AYEON]]、[[吳毓旋|Lili]]、[[王采甄|Ayako]]、[[陳羿涵|Nico]]）||《[[MIRROR (幻藍小熊迷你專輯)|MIRROR]]》||[[天空娛樂|天空娛樂股份有限公司]]
+|-
+|||凹與山（Isan、小凹）||《Hidden Album》||明天的歌有限公司
+|- style="background-color:#f0f0f0;"
+|||[[椅子樂團]]（裘詠靖、陳仲穎、孫伯元）||《愛的對白》||明天的歌有限公司
+|-
+|||Dac & 鄭昭元 ZAOYUAN（鄭昭元、Dac）||《Enough》||科學怪人股份有限公司
+|}
+
+==== [[最佳新人獎 (金曲獎)|最佳新人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品  !! 報名單位
+|-
+||[[File:Yellow Dots Golden.svg|center|22px]]||[[陳嫺靜]]||《如果每天都可以happy happy 誰想要sad：* - 合作的秘密》||顏社企業有限公司
+|- style="background-color:#f0f0f0;"
+|||高真 TRU(高正恩)||《ALIVE》||好撐音樂股份有限公司
+|-
+|||[[163 braces]](吳朵芸)||《海螺記》||滾石國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[陳以諾|陳以諾Sarah]]||《慢花誌》||環球國際唱片股份有限公司
+|-
+|||CJ MiT(謝金融)||《我說》||滾石移動股份有限公司
+|-style="background-color:#f0f0f0;"
+|||JOYCE 就以斯（詹佳穎）||《才華換桃花》||放飛音樂有限公司
+|}
+
+=== 演奏類【出版獎】 ===
+==== [[演奏類最佳專輯獎 (金曲獎)|最佳專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍專輯 !! 演奏 !! 報名單位
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||《Over The Moons》||[[蘇郁涵]]||種種可能企業有限公司
+|- style="background-color:#f0f0f0;"
+|||《Regrow Protocol》||Oberka||派樂黛唱片有限公司
+|-
+|||《心之歸途》||大恭||街聲股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《傳奇．雙擊--新視界》||[[黃瑞豐]]、[[吳政君]]||麥丁文化事業有限公司
+|-
+|||《reel mu$ic》||cool nel d||夕陽音樂產業有限公司
+|}
+
+=== 演奏類【個人獎】 ===
+==== [[演奏類最佳專輯製作人獎 (金曲獎)|最佳專輯製作人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ; 
+! width="30" |  !! 入圍者 !! 入圍作品 !! 演奏者 !! 報名單位
+|-
+|||[[蘇郁涵]]||《Over The Moons》||蘇郁涵||種種可能企業有限公司
+|- style="background-color:#f0f0f0;"
+|||Oberka||《Regrow Protocol》||Oberka||派樂黛唱片有限公司
+|-
+|||丁可||《長夜將盡 電影原聲音樂 (Wild Nights, Tamed Beasts [Original Soundtrack])》||丁可||街聲股份有限公司
+|- style="background-color:#f0f0f0;"
+|||大恭||《心之歸途》||大恭||街聲股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]|||[[黃瑞豐]]、[[吳政君]]||《傳奇．雙擊--新視界》||黃瑞豐、吳政君||麥丁文化事業有限公司
+|}
+
+==== [[演奏類最佳作曲人獎 (金曲獎)|最佳作曲人獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者／作品 !!演奏者／收錄專輯 !! 報名單位
+|-
+|||錢威良／Harsanik||Bazaar／《Stargazing 遊牧時空》||街聲股份有限公司
+|- style="background-color:#f0f0f0;"
+|||黃令先／<春 / Spring>||狂想三重奏／《狂想萬花筒 / Kaleidoscope Rhapsody》||菁英藝術家
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[蘇郁涵]]／Pieces Peace 碎碎平安||蘇郁涵、Alex LoRe、Anna Webber、Matt Mitchell、陳穎達、Marty Kenney、James Paul Nadien、Shinya Lin／《Over The Moons》||種種可能企業有限公司
+|- style="background-color:#f0f0f0;"
+|||[[黃瑞豐]]、[[吳政君]]／金||黃瑞豐、吳政君／《傳奇．雙擊--新視界》||麥丁文化事業有限公司
+|-
+|||李軍／居住正義||李軍／《居住正義》||風潮音樂國際股份有限公司
+|- style="background-color:#f0f0f0;"
+|||Nelson Thomas Ny-Devereaux／rentfree||cool nel d／《reel mu$ic》||夕陽音樂產業有限公司
+|}
+
+=== 技術類【出版獎】 ===
+==== [[金曲獎最佳MV獎|最佳MV獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor="gold" ;
+! width="30" |  !! 入圍歌曲!!入圍導演!! 演唱者 !!收錄專輯 !! 報名單位
+|-
+|||純妹妹||瓜西西||[[單依純]]||《純妹妹》||禾聲文化娛樂有限公司
+|- style="background-color:#f0f0f0;"
+|||Sakura Gansha||劉熙真||[[李竺芯]]||《[[Suí 水]]》||果核音樂玫瑰森林農場有限公司
+|-
+|||此刻||[[林書宇]]||[[許哲珮]]||《樹洞裡可以悲傷》||雪人有限公司
+|- style="background-color:#f0f0f0;"
+|||怪情歌||亞歷三小、自動鮪魚||[[林宥嘉]]||《[[Apples of Thy Eye]]》||華研國際音樂股份有限公司
+|-
+|||歸零→0||Ai Chen、凃昭旭||[[熊仔]]、[[王若琳]]||《∞→0》||台灣索尼音樂娛樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||[[Pleasure (蔡依林歌曲)|Pleasure]]||{{le|Christian Breslauer|Christian Breslauer}}||[[蔡依林|JOLIN蔡依林]]||《[[Pleasure (蔡依林專輯)|Pleasure]]》||華納國際音樂股份有限公司
+|-
+|||Fish Love||Rodrigo Inada||[[蔡依林|JOLIN蔡依林]]||《[[Pleasure (蔡依林專輯)|Pleasure]]》||華納國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||Dumplings||林宏叡||[[icyball冰球樂團]]||《我很抱歉》||何樂音樂有限公司
+|}
+
+==== [[最佳演唱錄音專輯獎 (金曲獎)|最佳演唱錄音專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍專輯 !! 錄音者 !!演唱者 !!報名單位
+|-
+|||《當大人》||主要錄音人員：陳振發<br>主要混音人員：樊乃綱、陳振發、林正忠<br>主要母帶後製人員：Chris Gehringer||[[李艾薇|艾薇]]||環球國際唱片股份有限公司
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||《[[Pleasure (蔡依林專輯)|Pleasure]]》||主要錄音人員：王永鈞、陳文駿、Xavier Daniel<br>主要混音人員：Josh Gudwin、Jon Castelli、Phil Tan<br>主要母帶後製人員：Dale Becker||[[蔡依林|JOLIN蔡依林]]||華納國際音樂股份有限公司
+|-
+|||《承諾》||主要錄音人員：André Baille-Barrelle<br>主要混音人員：André Baille-Barrelle<br>主要母帶後製人員：Pascal Luvisi||[[張婷雅|張婷雅（Estelle Perrault）]]||麥丁文化事業有限公司
+|- style="background-color:#f0f0f0;"
+|||《djekuacan 年少不努力》||主要錄音人員：謝豐澤<br>主要混音人員：Matthew Sim<br>主要母帶後製人員：Matthew Sim||[[Matzka]]||十一音像有限公司（十一音樂）
+|-
+|||《soul.food 靈食》||主要錄音人員：張閔翔、劉阿洛、施森銘、黃立堯、Cookin Soul、Kvnloverboy、Wayson Scream、陳文駿、葛仲珊<br>主要混音人員：NealHPogue、John McLucas、Cookin Soul、施森銘、Jae Chong、謝乾乾、Matt Sim<br>主要母帶後製人員：Mike Bozzi||[[葛仲珊]]||台灣索尼音樂娛樂股份有限公司
+|}
+
+==== [[最佳演奏錄音專輯獎 (金曲獎)|最佳演奏錄音專輯獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍專輯 !! 錄音者 !!演奏者 !!報名單位
+|-
+|||《Over The Moons》||主要錄音人員：Aaron Nevezie、Alex Conroy<br>主要混音人員：Aaron Nevezie、蘇郁涵<br>主要母帶後製人員：Alex DeTurk||[[蘇郁涵]]|| 種種可能企業有限公司
+|- style="background-color:#f0f0f0;"
+|||《康達效應 Coanda Effect》||主要錄音人員：徐振程 Jason Hsu、于世政 Shih Cheng Yu<br>主要混音人員：David Darlington<br>主要母帶後製人員：David Darlington||DonSir樂團 ||禾廣娛樂股份有限公司
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||《I Am Here》||主要錄音人員：Vincent De Bast<br>主要混音人員：André Fernandes<br>主要母帶後製人員：André Fernandes||陶璵（Taxodium）||華納國際音樂股份有限公司
+|- style="background-color:#f0f0f0;"
+|||《Invisible Nation (Original Motion Picture Soundtrack) 〈[[看不見的國家]]〉電影原聲帶》||主要錄音人員：孫紹庭<br>主要混音人員：Phil McGowan<br>主要母帶後製人員：Jett Galindo||許瑋珊||樂浪聲風股份有限公司
+|-
+|||《[[我們與惡的距離 II|我們與惡的距離II]]影集原聲帶》||主要錄音人員：林孝親<br>主要混音人員：林孝親、林思妤<br>主要母帶後製人員：Rob Kleiner||[[盧律銘]]、[[林孝親]]、[[林思妤]]||黑馬映像電影有限公司 
+|}
+
+=== 技術類【個人獎】 ===
+==== [[最佳裝幀設計獎 (金曲獎)|最佳裝幀設計獎]] ====
+{|class="toccolours" width="100%" style="text-align:center"
+|- bgcolor = "gold" ;
+! width="30" |  !! 入圍者 !! 入圍作品 !!演唱者 !! 報名單位
+|-
+|||黃嘉宏||《暮夜徐行》||[[老王樂隊]]||壞鄰居有限公司 
+|- style="background-color:#f0f0f0;"
+|||劉悅德||《有美夢上讚 Ū bí-bāng siōng tsán》||[[余佩真]]||流星小飛象有限公司
+|-
+|||黃品嘉、王馨||《睏 Sleep》||姜宜君、廖宇盟||卓著文化事業有限公司 
+|- style="background-color:#f0f0f0;"
+|[[File:Yellow Dots Golden.svg|center|22px]]||吳建龍、亞歷三小、蔡偉群||《SAX TAPE》||SAX MACHINE||夕陽音樂產業有限公司 
+|-
+|||[[聶永真]]、陳聖智、林智凱||《女兒的九十九種藍——聽見零雨》||羅思容||目宿媒體股份有限公司 
+|- style="background-color:#f0f0f0;"
+|||吳建龍、力王、畢展熒||《Hidden Album》||凹與山||明天的歌有限公司
+|}
+
+=== [[評審團獎 (金曲獎)|評審團獎]] ===
+{|class="toccolours" style="text-align:center"
+|- style="background-color: gold;"
+! style="width: 30px;"|
+! style="width: 80px;"|得獎者
+! style="width: 80px;"|作品
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[陳小霞]]||《老翅膀》
+|}
+
+=== [[特別貢獻獎 (金曲獎)|特別貢獻獎]] ===
+{|class="toccolours" style="text-align:center"
+|- style="background-color: gold;"
+! style="width: 30px;"|
+! style="width: 160px;"|得獎者
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||{{Box|[[屠穎]]}}
+|-
+|[[File:Yellow Dots Golden.svg|center|22px]]||[[林煌坤]]
+|}
+
+== 典禮流程 ==
+頒獎典禮於2026年6月27日在[[臺北小巨蛋]]舉行，由[[臺灣電視公司|台視]]製播。
+
+=== 頒獎嘉賓 ===
+{|class="wikitable" style="text-align:center"
+|-
+!頒獎(引言)人||頒發獎項
+|-
+|[[王宏恩]]<br>[[桑布伊]]
+|演唱類最佳原住民語歌手獎<br>演唱類最佳原住民語專輯獎
+|-
+|[[黃宣]]
+|技術類最佳演奏錄音專輯獎<br>技術類最佳演唱錄音專輯獎
+|-
+|[[蘇慧倫]]
+|演唱類最佳作曲人獎<br>演唱類最佳編曲人獎 
+|-
+|[[彭佳慧]]<br>[[韋禮安]]
+|演唱類最佳新人獎<br>演唱類最佳單曲製作人獎
+|-
+|[[蕭煌奇]]<br>[[黃奇斌]]
+|演唱類最佳作詞人獎<br>技術類最佳MV獎
+|-
+|[[黃子軒]]
+|演唱類最佳客語歌手獎<br>演唱類最佳客語專輯獎
+|-
+|[[李遠 (作家)|李遠]]
+|特別貢獻獎：[[林煌坤]]
+|-
+|[[鍾興民]]<br>[[洪敬堯]]
+|演奏類最佳作曲人獎<br>演奏類最佳專輯製作人獎<br>演奏類最佳專輯獎
+|-
+|[[許效舜]]<br>[[李竺芯]]
+|演唱類最佳台語男歌手獎<br>演唱類最佳台語女歌手獎<br>演唱類最佳台語專輯獎
+|-
+|[[黃韻玲]]
+|評審團獎：[[陳小霞]]
+|-
+|[[辛曉琪]]
+|特別貢獻獎：[[屠穎]]
+|-
+|[[馬念先]]<br>[[旺福|姚小民]]
+|技術類最佳裝幀設計獎<br>演唱類最佳樂團獎
+|-
+|[[許哲珮]]<br>[[黃路梓茵]]
+|演唱類年度歌曲獎 
+|-
+|[[動力火車]] 
+|演唱類最佳演唱組合獎 <br>演唱類最佳專輯製作人獎
+|-
+|[[呂士軒]]<br>[[魏如萱]]
+|演唱類最佳華語男歌手獎<br>演唱類最佳華語女歌手獎
+|-
+|[[莫文蔚]]
+|演唱類最佳華語專輯獎<br>演唱類年度專輯獎
+|-
+|}
+
+=== 表演節目 ===
+{| class="wikitable" style="text-align:center"
+! 引言人 !! 表演嘉賓 !! 演出主題  !! 演出內容
+|-
+| 
+| [[A-Lin]]
+| Welcome to GMA37
+| [[A-Lin]]〈幸福在歌唱〉<br>[[江蕙]]〈無言花〉<br>[[蔡依林]]〈pleasure〉<br>[[于立成]]〈Naru37〉
+|-
+|[[A-Lin]]
+|[[陳嫺靜]]
+|最佳新人獎得主演出
+| [[陳嫺靜]]〈New Notes〉
+|-
+| 
+|[[TRASH樂團]]<br>粹垢 TRAEGO
+| 21世紀最強兒歌
+|Marz23 、莫宰羊〈最美的風景〉<br>粹垢 TRAEGO〈Hakka Sucker〉
+|-
+|
+|[[羊文学]]
+| more than words
+|[[羊文学]]〈more than words〉
+|-
+|
+|[[孫淑媚]]
+| Catch Me
+| [[孫淑媚]]〈秘密情人〉<br>[[孫淑媚]]〈媽媽你沒對我講〉<br>[[孫淑媚]]〈Catch Me〉
+|-
+|[[A-Lin]]
+| [[田馥甄]]
+| 追思逝世音樂人
+| [[那英]]〈征服〉<br>[[范曉萱]]〈消失〉<br>[[王菲]]〈旋木〉<br>[[陶晶瑩]]〈離開我〉<br>[[鄭秀文]]〈缺席〉<br>[[潘越雲]]〈野百合也有春天〉
+|-
+| 
+|[[比莉]]<br>[[周湯豪]]
+|比誰卡厲害
+|[[黃立行]]〈Circus Monkey〉<br>[[比莉]]〈比莉卡厲害〉<br>[[比莉]]〈阿福羅火山〉<br>[[周湯豪]]〈Turn Up〉<br>[[周杰倫]]〈雙節棍〉<br>[[歐陽菲菲]]〈熱情的沙漠〉<br>[[張惠妹]]〈三天三夜〉<br>[[比莉]] 、[[周湯豪]]〈什麼都不必說 2022Remix〉
+|-
+| 
+| [[莫文蔚]]<br>The Masters
+| 相生
+| [[莫文蔚]]〈不要愛我〉<br> [[莫文蔚]]〈愛〉<br> [[莫文蔚]]〈你給我多少時間〉<br> [[莫文蔚]] & The Masters〈相生〉<br> [[莫文蔚]]〈如果沒有你〉
+|-
+|}
+
+=== 追思逝世音樂人 ===
+以下為緬懷已故音樂人的名單：
+{{div col|colwidth=20em}}
+* [[屠穎]]，編曲人、樂手
+* [[古學林]]，演唱會舞台總監
+* [[林治洋]]，音響工程師
+* [[林沖 (藝人)|林沖]]，歌手
+* [[宇宙 Kacaw]]，歌手
+* [[坣娜]]，歌手
+* [[黃小玫]]，歌手、詞曲創作、製作人
+* [[張錦華]](佐斯)，詞曲創作、製作人
+* [[楊弦]]，歌手、詞曲創作
+* [[曹西平]]，歌手
+* [[鄭琇月]]，歌手
+* [[范宗沛]]，演奏、作曲、製作人
+* [[藍薰]]，歌手
+* [[陳木]]，歌手、詞曲創作、製作人
+* [[夏萍(歌手)|夏萍]]，歌手
+* [[韓正皓]]，詞曲創作、製作人
+* [[游國謙]]，作詞
+* [[邱從容]]，製作人、出版人
+* [[黃大煒]]，歌手
+* [[洪弟七]]，歌手
+* [[袁惟仁]]，歌手、詞曲創作、製作人
+{{div col end}}
+
+== 多項入圍得獎紀錄 ==
+{| class="wikitable" style="text-align:center" 
+|+ 以唱片名義計算，列出3項或以上入圍者
+! 排序 
+! 演唱者/演奏者 !! 專輯 !! 類別 
+! 入圍數目 !! 得獎數目 !! 入圍獎項<br /><small>（'''粗體'''為該獎項得獎者）</small> 
+|-
+| 1
+| JOLIN蔡依林 || align="left" | 《Pleasure》 || 華語
+| 9 || 3
+| align="left" | '''[[年度專輯獎 (金曲獎)|年度專輯獎]]'''、[[年度歌曲獎 (金曲獎)|年度歌曲獎]]、[[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]]、'''[[最佳華語女歌手獎 (金曲獎)|最佳華語女歌手獎]]'''、[[最佳專輯製作人獎 (金曲獎)|最佳專輯製作人獎]]、[[最佳編曲人獎 (金曲獎)|最佳作編曲人獎]]、'''[[最佳演唱錄音專輯獎 (金曲獎)|最佳演唱錄音專輯獎]]'''、[[最佳MV獎 (金曲獎)|最佳MV獎]]（2項）
+|-
+| 2
+| 張震嶽 || align="left" |《跟著感覺走》|| 華語
+| 6 || 3
+| align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[年度歌曲獎 (金曲獎)|年度歌曲獎]]、'''[[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]]'''、'''[[最佳華語男歌手獎 (金曲獎)|最佳華語男歌手獎]]'''、'''[[最佳作曲人獎 (金曲獎)|最佳作曲人獎]]'''、[[最佳作詞人獎 (金曲獎)|最佳作詞人獎]]
+|-
+| 3
+|  蕭煌奇|| align="left" |《做一個惜情軟心的人》|| 台語
+| 4 || 2
+|align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、'''[[最佳台語專輯獎 (金曲獎)|最佳台語專輯獎]]'''、'''[[最佳台語男歌手獎 (金曲獎)|最佳台語男歌手獎]]'''、[[最佳作曲人獎 (金曲獎)|最佳作曲人獎]]
+|-
+| 4
+| 裘德 || align="left" | 《離開銀色荒原》|| 華語
+| 7 || 1
+| align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]]、[[最佳華語男歌手獎 (金曲獎)|最佳華語男歌手獎]]、[[最佳專輯製作人獎 (金曲獎)|最佳專輯製作人獎]]、[[最佳作曲人獎 (金曲獎)|最佳作曲人獎]]、[[最佳作詞人獎 (金曲獎)|最佳作詞人獎]]、'''[[最佳編曲人獎 (金曲獎)|最佳編曲人獎]]'''
+|-
+| 5
+| 單依純 || align="left" | 《純妹妹》 || 華語
+| 5 || 1
+| align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]]、[[最佳華語女歌手獎 (金曲獎)|最佳華語女歌手獎]]、'''[[最佳專輯製作人獎 (金曲獎)|最佳專輯製作人獎]]'''、[[最佳MV獎 (金曲獎)|最佳MV獎]]
+|-
+| rowspan=2|6
+| 陳以諾 Sarah || align="left" | 《慢花誌》 || 客語
+| 4 || 1
+| align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳客語專輯獎 (金曲獎)|最佳客語專輯獎]]、'''[[最佳客語歌手獎 (金曲獎)|最佳客語歌手獎]]'''、[[最佳新人獎 (金曲獎)|最佳新人獎]]
+|-
+| 蘇郁涵 || align="left" | 《Over The Moons》 || 演奏
+| 4 || 1
+| align="left" | [[演奏類最佳專輯獎 (金曲獎)|演奏類最佳專輯獎]]、[[演奏類最佳專輯製作人獎 (金曲獎)|演奏類最佳專輯製作人獎]]、'''[[演奏類最佳作曲人獎 (金曲獎)|演奏類最佳作曲人獎]]'''、[[最佳演奏錄音專輯獎 (金曲獎)|最佳演奏錄音專輯獎]]
+|-
+| rowspan=6|8
+| 陳嫺靜 || align="left" |《如果每天都可以happy happy 誰想要sad:＊- 合作的秘密》|| 華語
+|  3 || 1
+|align="left" |[[年度歌曲獎 (金曲獎)|年度歌曲獎]]、[[最佳華語女歌手獎 (金曲獎)|最佳華語女歌手獎]]、'''[[最佳新人獎 (金曲獎)|最佳新人獎]]'''
+|-
+| 漂流出口||align="left" |《Masonolay i Cepo'》||原住民語
+| 3 || 1
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、'''[[最佳原住民語專輯獎 (金曲獎)|最佳原住民語專輯獎]]'''、[[最佳樂團獎 (金曲獎)|最佳樂團獎]]
+|-
+| 黃宇寒||align="left" |《Ngai》||客語
+| 3 || 1
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、'''[[最佳客語專輯獎 (金曲獎)|最佳客語專輯獎]]'''、[[最佳客語歌手獎 (金曲獎)|最佳客語歌手獎]]
+|-
+| Suming 舒米恩||align="left" |《Mikerid 引路》||原住民語
+| 3 || 1
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳原住民語專輯獎 (金曲獎)|最佳原住民語專輯獎]]、'''[[最佳原住民語歌手獎 (金曲獎)|最佳原住民語歌手獎]]'''
+|-
+| 落日飛車||align="left" |《QUIT QUIETLY》||華語
+| 3 || 1
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、'''[[最佳樂團獎 (金曲獎)|最佳樂團獎]]'''、[[最佳專輯製作人獎 (金曲獎)|最佳專輯製作人獎]]
+|-
+| 黃瑞豐、吳政君 || align="left" | 《傳奇．雙擊--新視界》 || 演奏
+| 3 || 1
+| align="left" | [[演奏類最佳專輯獎 (金曲獎)|演奏類最佳專輯獎]]、'''[[演奏類最佳專輯製作人獎 (金曲獎)|演奏類最佳專輯製作人獎]]'''、[[演奏類最佳作曲人獎 (金曲獎)|演奏類最佳作曲人獎]]
+|-
+| rowspan=11|
+| 吳永吉 || align="left" | 《褪褲lān的兄弟》 || 台語
+| 4 || 0
+| align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳台語專輯獎 (金曲獎)|最佳台語專輯獎]]、[[最佳台語男歌手獎 (金曲獎)|最佳台語男歌手獎]]、[[最佳作詞人獎 (金曲獎)|最佳作詞人獎]]
+|-
+| CJ MiT || align="left" | 《我說》 || 台語
+| 4 || 0
+| align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳台語專輯獎 (金曲獎)|最佳台語專輯獎]]、[[最佳台語男歌手獎 (金曲獎)|最佳台語男歌手獎]]、[[最佳新人獎 (金曲獎)|最佳新人獎]]
+|-
+| Matzka || align="left" | 《djekuacan 年少不努力》 || 原住民語
+| 4 || 0
+| align="left" | [[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳原住民語專輯獎 (金曲獎)|最佳原住民語專輯獎]]、[[最佳原住民語歌手獎 (金曲獎)|最佳原住民語歌手獎]]、[[最佳演唱錄音專輯獎 (金曲獎)|最佳演唱錄音專輯獎]]
+|-
+| 洪佩瑜 || align="left" |《開》|| 華語
+|  3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]]、[[最佳華語女歌手獎 (金曲獎)|最佳華語女歌手獎]]
+|-
+| 頑童MJ116 || align="left" |《OGS》|| 華語
+|  3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳華語專輯獎 (金曲獎)|最佳華語專輯獎]]、[[最佳演唱組合獎 (金曲獎)|最佳演唱組合獎]]
+|-
+| 鄭宜農||align="left" |《圓缺》||台語
+| 3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳台語專輯獎 (金曲獎)|最佳台語專輯獎]]、[[最佳台語女歌手獎 (金曲獎)|最佳台語女歌手獎]]
+|-
+| 阿依·羅||align="left" |《南方的冬》||客語
+| 3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳客語專輯獎 (金曲獎)|最佳客語專輯獎]]、[[最佳客語歌手獎 (金曲獎)|最佳客語歌手獎]]
+|-
+| ana||align="left" |《Final Girl》||客語
+| 3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳客語專輯獎 (金曲獎)|最佳客語專輯獎]]、[[最佳客語歌手獎 (金曲獎)|最佳客語歌手獎]]
+|-
+| 春麵樂隊||align="left" |《下回上去》||客語
+| 3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳客語專輯獎 (金曲獎)|最佳客語專輯獎]]、[[最佳客語歌手獎 (金曲獎)|最佳客語歌手獎]]
+|-
+| 高金龍 Lawis Aow||align="left" |《Saitikotiko》||原住民語
+| 3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳原住民語專輯獎 (金曲獎)|最佳原住民語專輯獎]]、[[最佳原住民語歌手獎 (金曲獎)|最佳原住民語歌手獎]]
+|-
+| Arase 阿拉斯||align="left" |《AKA》||原住民語
+| 3 || 0
+|align="left" |[[年度專輯獎 (金曲獎)|年度專輯獎]]、[[最佳原住民語專輯獎 (金曲獎)|最佳原住民語專輯獎]]、[[最佳原住民語歌手獎 (金曲獎)|最佳原住民語歌手獎]]
+|-
+|}
+
+== 典禮製作團隊 ==
+* 主辦單位：文化部影視及流行音樂產業局
+* 承辦單位：臺灣電視公司
+* 典禮製作：源活國際娛樂整合行銷股份有限公司
+
+== 備註 ==
+{{noteFoot}}
+
+== 參考資料 ==
+{{Reflist|30em}}
+
+== 外部連結 ==
+* [https://gma.tavis.tw/#/ 第37屆金曲獎頒獎典禮官方網站] {{zh-tw}}
+* {{facebook|GMAGMF|金曲 GMA}} {{zh-tw}}
+{{金曲獎}}
+
+[[Category:2026年台灣獎項]]
+[[Category:2026年音樂獎項]]
+[[Category:金曲獎頒獎典禮]]
+[[Category:2026年臺灣音樂]]
+[[Category:2026年6月]]
+[[Category:6月27日]]

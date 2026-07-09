@@ -9,9 +9,24 @@ import csv, json, re, sys, io
 from pathlib import Path
 from datetime import date
 
+from award_map import AWARD_GROUPS, build_lookup
+
 ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "data" / "raw"
+MANUAL = ROOT / "data" / "manual"
 OUT = ROOT / "docs" / "data" / "gma.json"
+
+
+def track_of(filename, grp):
+    """Award track for lineage mapping: trad / inst / whc / pop."""
+    g = grp or ""
+    if "世界華人" in g:
+        return "whc"
+    if "傳統暨藝術" in filename or "傳統" in g or "非流行" in g:
+        return "trad"
+    if "演奏" in g:
+        return "inst"
+    return "pop"
 
 
 def read_csv(path):
@@ -56,10 +71,14 @@ def parse_rows(path, kind):
     c_unit, c_perf = col("報名單位"), col("演唱者", "演奏者")
 
     def get(r, i):
-        return r[i].strip() if i is not None and i < len(r) else ""
+        if i is None or i >= len(r):
+            return ""
+        # official CSVs occasionally leak HTML fragments like "< div>"
+        return re.sub(r"<[^>]{0,20}>", "", r[i]).strip()
 
     for r in rows[1:]:
-        cat = get(r, c_cat)
+        # strip stray leading junk (e.g. "?最佳台語女演唱人獎" in the 16th CSV)
+        cat = re.sub(r"^[^一-鿿A-Za-z0-9]+", "", get(r, c_cat))
         if not cat:
             continue
         roc_s = re.sub(r"\D", "", get(r, c_roc))
@@ -80,13 +99,17 @@ def parse_rows(path, kind):
             rec["grp"] = grp
         if perf:
             rec["perf"] = perf
+        rec["track"] = track_of(path.name, grp)
         yield rec
 
 
 def main():
     # editions 1-19: 第N屆金曲獎入圍名單; 20+: 第N屆金曲獎流行音樂類入圍名單
-    nom_files = sorted(RAW.glob("第*屆金曲獎*入圍名單.csv"))
-    win_files = sorted(RAW.glob("第*屆金曲獎*得獎名單.csv"))
+    # data/manual holds editions missing from open data (36+, wiki-derived)
+    nom_files = sorted(RAW.glob("第*屆金曲獎*入圍名單.csv")) + \
+                sorted(MANUAL.glob("第*屆金曲獎*入圍名單.csv"))
+    win_files = sorted(RAW.glob("第*屆金曲獎*得獎名單.csv")) + \
+                sorted(MANUAL.glob("第*屆金曲獎*得獎名單.csv"))
     if not nom_files and not win_files:
         sys.exit("no raw CSVs found; run scripts/download_raw.sh first")
 
@@ -131,13 +154,43 @@ def main():
                     index.setdefault(k, rec)
                 unmatched += 1
 
+    # ── award lineage mapping: (track, cat) -> canonical award id ──
+    SECTION_OF_TRACK = {"pop": "演唱類", "inst": "演奏類",
+                        "trad": "傳藝類", "whc": "特別獎"}
+    lookup = build_lookup()
+    awards = {}          # aid -> {name, section, lang, names: {cat: set(eds)}}
+    unmapped = set()
+    for rec in records:
+        key = (rec["track"], rec["cat"])
+        aid = lookup.get(key)
+        if aid is None:
+            aid = rec["cat"] if rec["track"] == "pop" else f"{rec['track']}:{rec['cat']}"
+            unmapped.add(key)
+            meta_g = {"name": rec["cat"],
+                      "section": SECTION_OF_TRACK[rec["track"]], "lang": ""}
+        else:
+            g = AWARD_GROUPS[aid]
+            meta_g = {"name": g["name"], "section": g["section"], "lang": g["lang"]}
+        rec["aid"] = aid
+        a = awards.setdefault(aid, {**meta_g, "names": {}})
+        a["names"].setdefault(rec["cat"], set()).add(rec["e"])
+        del rec["track"]
+
+    awards_meta = {}
+    for aid, a in awards.items():
+        names = [{"n": cat, "eds": sorted(eds)} for cat, eds in
+                 sorted(a["names"].items(), key=lambda kv: min(kv[1]))]
+        awards_meta[aid] = {"name": a["name"], "section": a["section"],
+                            "lang": a["lang"], "names": names}
+
     records.sort(key=lambda r: (r["e"], r["cat"], not r["win"], r["who"]))
     out = {
         "meta": {
-            "source": "文化部影視及流行音樂產業局開放資料（流行音樂金曲獎歷屆得獎入圍名單）",
+            "source": "文化部影視及流行音樂產業局開放資料（流行音樂金曲獎歷屆得獎入圍名單）＋第36/37屆維基百科整理",
             "sourceUrl": "https://data.gov.tw/dataset/58037",
             "generated": date.today().isoformat(),
             "editions": {str(k): v for k, v in sorted(editions.items())},
+            "awards": awards_meta,
         },
         "records": records,
     }
@@ -148,8 +201,13 @@ def main():
     wins = sum(1 for r in records if r["win"])
     cats = len({r["cat"] for r in records})
     print(f"editions: {len(editions)} ({min(editions)}-{max(editions)})")
-    print(f"records: {len(records)}  wins: {wins}  categories: {cats}")
+    print(f"records: {len(records)}  wins: {wins}  categories: {cats}  "
+          f"awards: {len(awards_meta)}")
     print(f"winner rows without nominee match (added as win-only): {unmatched}")
+    if unmapped:
+        print(f"UNMAPPED (track, cat) pairs ({len(unmapped)}):")
+        for t, c in sorted(unmapped):
+            print(f"  {t}: {c}")
     print(f"wrote {OUT} ({OUT.stat().st_size//1024} KB)")
 
 
