@@ -6,7 +6,10 @@
   var PAGE_SIZE = 100;
   var SECTIONS = ["演唱類", "演奏類", "傳藝類", "技術類", "特別獎"];
   var LANGS = ["華語", "台語", "客語", "原住民語"];
-  var COMPANY_RE = /(股份)?有限公司|事業|出版社|工作室|唱片|音樂|文化|傳播|娛樂|音像|合作行|經紀|國小|合唱團$/;
+  // entity looks like a company/unit when it ENDS with a business suffix
+  // (optionally followed by a parenthetical alias); performers like
+  // "山狗大樂團"/"東埔國小合唱團" are deliberately NOT matched
+  var COMPANY_RE = /(公司|事業|出版社|工作室|音像|傳播|唱片|文化|音樂|娛樂|經紀|合作行|出版部|製作所)([（(][^）)]*[）)])?$/;
 
   var UI_TEXT = {
     loading: "載入資料中...",
@@ -355,7 +358,12 @@
   }
 
   function readHash() {
-    var hash = decodeURIComponent(window.location.hash || "").replace(/^#/, "");
+    var hash;
+    try {
+      hash = decodeURIComponent(window.location.hash || "").replace(/^#/, "");
+    } catch (e) {
+      hash = "";  // malformed percent-encoding in the URL
+    }
     if (!hash) {
       return;
     }
@@ -1158,7 +1166,10 @@
     cleaned.split(/[／/]/).forEach(function (part) {
       var colon = part.match(/^([^：:]{1,32})[：:](.+)$/);
       if (colon) {
-        result.push(clean(colon[1]));
+        // "評審團獎：陳小霞" — keep the label only if it is not a role word
+        if (!/演唱|演奏|作曲|作詞|導演|錄音|混音|母帶|主要|人員/.test(colon[1])) {
+          result.push(clean(colon[1]));
+        }
         result = result.concat(splitPlainPeople(colon[2]));
       } else {
         result = result.concat(splitPlainPeople(part));
@@ -1168,9 +1179,41 @@
   }
 
   function splitPlainPeople(value) {
-    return clean(value).split(/[、,，;；]/).map(function (name) {
-      return clean(name).replace(/^及/, "").replace(/等$/, "");
-    }).filter(Boolean);
+    // split on 、,，;； only OUTSIDE parentheses, so
+    // "草東沒有派對（林耕佑、詹爲筑）" is not broken into fragments
+    var text = clean(value);
+    var tokens = [];
+    var buf = "", depth = 0;
+    for (var i = 0; i < text.length; i += 1) {
+      var ch = text.charAt(i);
+      if (ch === "（" || ch === "(") depth += 1;
+      if (ch === "）" || ch === ")") depth = Math.max(0, depth - 1);
+      if (depth === 0 && /[、,，;；]/.test(ch)) {
+        tokens.push(buf); buf = "";
+      } else {
+        buf += ch;
+      }
+    }
+    tokens.push(buf);
+
+    var result = [];
+    tokens.forEach(function (token) {
+      var name = clean(token).replace(/^及/, "").replace(/等$/, "");
+      if (!name) return;
+      // "團體（成員A、成員B）" -> the group AND each member;
+      // "孫家麟（孫儀）" (alias, no 、 inside) stays as one entity
+      var m = name.match(/^(.+?)[（(]([^（）()]*[、,，][^（）()]*)[）)]$/);
+      if (m) {
+        result.push(clean(m[1]));
+        m[2].split(/[、,，;；]/).forEach(function (member) {
+          var p = clean(member);
+          if (p) result.push(p);
+        });
+      } else {
+        result.push(name);
+      }
+    });
+    return result;
   }
 
   function groupBy(items, keyFn) {

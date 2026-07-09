@@ -114,15 +114,13 @@ def main():
         sys.exit("no raw CSVs found; run scripts/download_raw.sh first")
 
     records = []          # final list
-    index = {}            # lookup keys -> record, for winner matching
     editions = {}
 
-    def keys(rec):
-        e, cat = rec["e"], norm(rec["cat"])
-        yield (e, cat, norm(rec["work"]), norm(rec["who"]))
-        yield (e, cat, norm(rec["who"]))
-        if rec["work"]:
-            yield (e, cat, "W:" + norm(rec["work"]))
+    def norm2(s):
+        """Aggressive normalization for matching: CJK + alnum only."""
+        return re.sub(r"[^0-9A-Za-z一-鿿]", "", s or "").lower()
+
+    exact_idx, work_idx, who_idx = {}, {}, {}
 
     for f in nom_files:
         for rec in parse_rows(f, "nom"):
@@ -130,28 +128,52 @@ def main():
             del rec["kind"]
             records.append(rec)
             editions.setdefault(rec["e"], rec["y"])
-            for k in keys(rec):
-                index.setdefault(k, rec)
+            e, cat = rec["e"], norm(rec["cat"])
+            w, p = norm2(rec["work"]), norm2(rec["who"])
+            exact_idx.setdefault((e, cat, w, p), rec)
+            if w:
+                work_idx.setdefault((e, cat, w), []).append(rec)
+            if p:
+                who_idx.setdefault((e, cat, p), []).append(rec)
+
+    def find_nominee(win):
+        """Match a winner row to its nominee row, strictest key first."""
+        e, cat = win["e"], norm(win["cat"])
+        w, p = norm2(win["work"]), norm2(win["who"])
+        hit = exact_idx.get((e, cat, w, p))
+        if hit is not None:
+            return hit
+        cands = work_idx.get((e, cat, w), []) if w else []
+        if len(cands) == 1:
+            return cands[0]
+        if len(cands) > 1:  # same work registered by several parties: match who
+            sub = [c for c in cands if p and (p in norm2(c["who"]) or norm2(c["who"]) in p)]
+            return sub[0] if len(sub) == 1 else cands[0]
+        cands = who_idx.get((e, cat, p), []) if p else []
+        if len(cands) == 1:
+            return cands[0]
+        if len(cands) > 1:  # same person nominated多件: disambiguate by work
+            sub = [c for c in cands
+                   if w and norm2(c["work"]) and
+                   (norm2(c["work"]) in w or w in norm2(c["work"]))]
+            if len(sub) == 1:
+                return sub[0]
+        return None
 
     unmatched = 0
     for f in win_files:
         for rec in parse_rows(f, "win"):
             editions.setdefault(rec["e"], rec["y"])
-            hit = None
-            for k in keys(rec):
-                if k in index:
-                    hit = index[k]
-                    break
+            hit = find_nominee(rec)
             if hit is not None and not hit["win"]:
                 hit["win"] = True
                 # winner file sometimes has fuller name; prefer nominee text
             else:
-                # winner with no nominee row (early editions had no公示入围)
+                # winner with no nominee row (early editions had no公示入围,
+                # 特別貢獻獎/評審團獎 have no nomination phase)
                 rec["win"] = True
                 del rec["kind"]
                 records.append(rec)
-                for k in keys(rec):
-                    index.setdefault(k, rec)
                 unmatched += 1
 
     # ── award lineage mapping: (track, cat) -> canonical award id ──

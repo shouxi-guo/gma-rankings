@@ -91,6 +91,9 @@ def strip_markup(text):
         t = re.sub(r"\{\{(?:[Nn]owrap|[Bb]ox)\|([^{}]*)\}\}", r"\1", t)
     t = re.sub(r"\{\{wbr\}\}", "", t)
     t = re.sub(r"-\{([^{}]*)\}-", r"\1", t)  # {-zh variant-} markers
+    # name-bearing templates: {{Link-yue|target|text}}, {{lang|xx|text}} -> text
+    t = re.sub(r"\{\{[Ll]ink-[^|{}]*\|[^|{}]*\|([^{}|]*)\}\}", r"\1", t)
+    t = re.sub(r"\{\{[Ll]ang\|[^|{}]*\|([^{}|]*)\}\}", r"\1", t)
     t = re.sub(r"\{\{[^{}]*\}\}", "", t)  # drop any remaining templates
 
     def link(m):
@@ -110,8 +113,9 @@ def strip_markup(text):
 
 
 def strip_style(cell):
-    """Drop leading style=...| / width=...| attribute prefix of a table cell."""
-    m = re.match(r'^\s*[a-zA-Z-]+\s*=\s*"[^"]*"\s*(?:[a-zA-Z-]+\s*=\s*"[^"]*"\s*)*\|(?!\|)', cell)
+    """Drop a leading attribute prefix (style="..."| / rowspan=2| ...) of a cell."""
+    attr = r'[a-zA-Z-]+\s*=\s*(?:"[^"]*"|\'[^\']*\'|[^\s|]+)\s*'
+    m = re.match(rf'^\s*(?:{attr})+\|(?!\|)', cell)
     return cell[m.end():] if m else cell
 
 
