@@ -1,7 +1,10 @@
 # 金曲獎資料庫 GMA Rankings
 
+**線上版：<https://shouxi-guo.github.io/gma-rankings/>**
+
 非官方的台灣金曲獎歷屆入圍/得獎紀錄查詢網站，靈感來自 [CSRankings](https://csrankings.org)。
 純靜態站，無後端、無構建步驟，支援簡繁切換與簡繁互搜。
+涵蓋第 1–37 屆（1990–2026）共 4800+ 筆入圍/得獎紀錄、58 個規範獎項沿革。
 
 ## 使用
 
