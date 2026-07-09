@@ -666,7 +666,7 @@
           format(txt("edOnly"), record.e),
           String(record.y || ""),
           awardLabel(record),
-          tx(record.work || ""),
+          tx(formatWork(record)),
           tx(record.perf || ""),
           tx(record.unit || ""),
           badge(record.win)
@@ -820,11 +820,31 @@
     appendCells(tr, [
       badge(record.win),
       personLink(record.who),
-      tx(record.work || ""),
+      tx(formatWork(record)),
       tx(record.perf || ""),
       tx(record.unit || "")
     ]);
     return tr;
+  }
+
+  function formatWork(record) {
+    // 專輯用《》、歌曲用〈〉；資料中歌曲類 work 形如「歌名《收錄專輯》」
+    var w = clean(record.work);
+    if (!w) {
+      return "";
+    }
+    var m = w.match(/^(.*?)《(.*)》$/);
+    if (m) {
+      return m[1].trim()
+        ? "〈" + m[1].trim() + "〉《" + m[2] + "》"
+        : "《" + m[2] + "》";
+    }
+    var award = getAward(record.aid);
+    var label = ((award && award.name) || "") + record.cat;
+    if (/歌曲|作曲|作詞|編曲|單曲|MV|錄影帶/.test(label)) {
+      return "〈" + w + "〉";
+    }
+    return "《" + w + "》";
   }
 
   function renderSuggestions(value) {

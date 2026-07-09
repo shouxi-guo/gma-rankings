@@ -1,2 +1,4 @@
 __pycache__/
 *.pyc
+data/fonts/*.ttf
+data/fonts/subset_chars.txt
