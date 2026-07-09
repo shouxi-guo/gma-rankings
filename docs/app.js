@@ -20,7 +20,19 @@
     person: "個人頁",
     edition: "依屆次",
     award: "依獎項",
+    stats: "統計圖表",
     lineage: "獎項沿革",
+    chartA: "每屆入圍件數",
+    chartASub: "各屆入圍暨得獎紀錄總筆數（含傳藝類時期）",
+    chartB: "語種獎項的入圍紀錄數演變",
+    chartBSub: "華語（第32屆前為國語）、台語、客語、原住民語獎項的每屆入圍筆數",
+    chartC: "每屆頒發獎項數（依類別）",
+    chartCSub: "每屆實際頒發的獎項個數，第20–24屆含傳統暨藝術音樂類，其後分家為傳藝金曲獎",
+    tableView: "顯示數據表",
+    copyLink: "🔗 複製連結",
+    copied: "已複製 ✓",
+    triviaMore: "換一則",
+    timelineTitle: "生涯時間線",
     allAwards: "全部獎項",
     allSections: "全部類別",
     allLangs: "全部語種",
@@ -395,6 +407,8 @@
       state.selectedWorkE = Number(parts[1]) || 0;
       state.selectedWork = parts.slice(2).join("/");
       state.tab = "work";
+    } else if (parts[0] === "stats") {
+      state.tab = "stats";
     } else if (parts[0] === "lineage") {
       state.tab = "lineage";
     } else if (parts[0] === "ranking") {
@@ -412,6 +426,8 @@
       next = "award/" + encodeURIComponent(state.selectedAward);
     } else if (state.tab === "work" && state.selectedWork) {
       next = "work/" + state.selectedWorkE + "/" + encodeURIComponent(state.selectedWork);
+    } else if (state.tab === "stats") {
+      next = "stats";
     } else if (state.tab === "lineage") {
       next = "lineage";
     } else {
@@ -459,6 +475,8 @@
       renderAward();
     } else if (state.tab === "work") {
       renderWork();
+    } else if (state.tab === "stats") {
+      renderStats();
     } else if (state.tab === "lineage") {
       renderLineage();
     } else {
@@ -482,6 +500,7 @@
 
     clear(dom.app);
     var panel = el("section", { className: "panel" }, [
+      triviaCard(),
       el("div", { className: "filters ranking-filters" }, [
         field(txt("awardName"), awardSelect("rankAward", true, filters.aid, function (value) {
           filters.aid = value;
@@ -670,7 +689,8 @@
 
     dom.app.appendChild(el("section", { className: "panel" }, [
       el("div", { className: "person-head" }, [
-        el("h2", {}, [tx(state.selectedPerson)])
+        el("h2", {}, [tx(state.selectedPerson)]),
+        copyLinkButton()
       ]),
       el("div", { className: "cards" }, [
         statCard(txt("totalNoms"), records.length),
@@ -682,6 +702,7 @@
         el("strong", {}, [txt("sectionDist") + "："]),
         document.createTextNode(dist || txt("empty"))
       ]),
+      careerTimeline(records),
       table([txt("editionCol"), txt("year"), txt("awardName"), txt("nomineeCol"), txt("work"), txt("performer"), txt("unit"), txt("result")], records.map(function (record) {
         var tr = document.createElement("tr");
         if (record.win) {
@@ -838,6 +859,400 @@
     dom.app.appendChild(el("section", { className: "panel" }, blocks));
   }
 
+  /* ── 統計圖表 ──────────────────────────────────────────── */
+
+  var SLOT_COLORS = ["var(--c1)", "var(--c2)", "var(--c3)", "var(--c4)", "var(--c5)"];
+  var vizTip = null;
+
+  function tipShow(evt, html) {
+    if (!vizTip) {
+      vizTip = document.createElement("div");
+      vizTip.className = "viz-tip";
+      document.body.appendChild(vizTip);
+    }
+    vizTip.innerHTML = html;
+    vizTip.style.display = "block";
+    var x = Math.min(evt.clientX + 14, window.innerWidth - 200);
+    var y = Math.min(evt.clientY + 14, window.innerHeight - 90);
+    vizTip.style.left = x + "px";
+    vizTip.style.top = y + "px";
+  }
+
+  function tipHide() {
+    if (vizTip) {
+      vizTip.style.display = "none";
+    }
+  }
+
+  function svgEl(tag, attrs, children) {
+    var node = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    Object.keys(attrs || {}).forEach(function (key) {
+      node.setAttribute(key, attrs[key]);
+    });
+    (children || []).forEach(function (child) {
+      node.appendChild(child);
+    });
+    return node;
+  }
+
+  function svgText(x, y, text, anchor, extra) {
+    var attrs = { x: x, y: y, fill: "var(--viz-ink)", "font-size": "11" };
+    if (anchor) attrs["text-anchor"] = anchor;
+    Object.keys(extra || {}).forEach(function (k) { attrs[k] = extra[k]; });
+    var node = svgEl("text", attrs);
+    node.textContent = text;
+    return node;
+  }
+
+  function niceMax(v) {
+    if (v <= 10) return 10;
+    var mag = Math.pow(10, Math.floor(Math.log(v) / Math.LN10));
+    var steps = [1, 1.5, 2, 2.5, 3, 4, 5, 6, 8, 10];
+    for (var i = 0; i < steps.length; i += 1) {
+      if (steps[i] * mag >= v) return steps[i] * mag;
+    }
+    return 10 * mag;
+  }
+
+  // shared frame: y grid + x edition ticks. returns {svg, sx, sy, plot}
+  function chartFrame(W, H, m, eds, yMax) {
+    var plotW = W - m.l - m.r, plotH = H - m.t - m.b;
+    var sx = function (e) {
+      var lo = eds[0].e, hi = eds[eds.length - 1].e;
+      return m.l + (e - lo) / Math.max(1, hi - lo) * plotW;
+    };
+    var sy = function (v) { return m.t + plotH - v / yMax * plotH; };
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img" });
+    for (var t = 0; t <= 4; t += 1) {
+      var v = yMax / 4 * t;
+      var y = sy(v);
+      svg.appendChild(svgEl("line", { x1: m.l, x2: W - m.r, y1: y, y2: y,
+        stroke: t === 0 ? "var(--viz-axis)" : "var(--viz-grid)", "stroke-width": 1 }));
+      if (t > 0) svg.appendChild(svgText(m.l - 6, y + 4, String(Math.round(v)), "end"));
+    }
+    eds.forEach(function (it) {
+      if (it.e % 5 === 0 || it.e === 1) {
+        var x = sx(it.e);
+        svg.appendChild(svgEl("line", { x1: x, x2: x, y1: m.t + plotH, y2: m.t + plotH + 4,
+          stroke: "var(--viz-axis)", "stroke-width": 1 }));
+        svg.appendChild(svgText(x, m.t + plotH + 16, it.e + txt("edSuffix"), "middle"));
+      }
+    });
+    return { svg: svg, sx: sx, sy: sy, plotH: plotH, plotW: plotW };
+  }
+
+  function chartCard(titleKey, subKey, svg, legendItems, tableEl) {
+    var kids = [el("h3", {}, [txt(titleKey)]), el("p", { className: "chart-sub" }, [txt(subKey)])];
+    if (legendItems && legendItems.length > 1) {
+      kids.push(el("div", { className: "viz-legend" }, legendItems.map(function (item) {
+        var i = document.createElement("i");
+        i.style.background = item.color;
+        return el("span", {}, [i, tx(item.name)]);
+      })));
+    }
+    kids.push(el("div", { className: "chart-svg-wrap" }, [svg]));
+    if (tableEl) {
+      var details = el("details", { className: "chart-table" }, [
+        el("summary", {}, [txt("tableView")]), tableEl]);
+      kids.push(details);
+    }
+    return el("section", { className: "chart-card" }, kids);
+  }
+
+  function dataTable(headers, rows) {
+    return table(headers.map(tx), rows.map(function (cells) {
+      var tr = document.createElement("tr");
+      appendCells(tr, cells.map(String));
+      return tr;
+    }));
+  }
+
+  // multi-series line chart with per-edition hover column + end labels
+  function lineChart(eds, series) {
+    var W = 940, H = 260;
+    var m = { t: 14, r: series.length > 1 ? 128 : 24, b: 30, l: 38 };
+    var maxV = 0;
+    series.forEach(function (s) { s.values.forEach(function (v) { maxV = Math.max(maxV, v); }); });
+    var yMax = niceMax(maxV);
+    var f = chartFrame(W, H, m, eds, yMax);
+
+    series.forEach(function (s, si) {
+      var d = s.values.map(function (v, i) {
+        return (i ? "L" : "M") + f.sx(eds[i].e).toFixed(1) + " " + f.sy(v).toFixed(1);
+      }).join(" ");
+      f.svg.appendChild(svgEl("path", { d: d, fill: "none",
+        stroke: SLOT_COLORS[si], "stroke-width": 2, "stroke-linejoin": "round" }));
+    });
+    // direct labels at line ends, pushed apart to avoid collisions
+    if (series.length > 1) {
+      var ends = series.map(function (s, si) {
+        return { si: si, name: s.name, y: f.sy(s.values[s.values.length - 1]) };
+      }).sort(function (a, b) { return a.y - b.y; });
+      for (var i = 1; i < ends.length; i += 1) {
+        if (ends[i].y - ends[i - 1].y < 14) ends[i].y = ends[i - 1].y + 14;
+      }
+      ends.forEach(function (item) {
+        f.svg.appendChild(svgText(W - m.r + 8, item.y + 4, tx(item.name), "start",
+          { fill: SLOT_COLORS[item.si], "font-weight": "650" }));
+      });
+    }
+    // hover columns
+    var colW = f.plotW / Math.max(1, eds.length - 1);
+    eds.forEach(function (it, i) {
+      var rect = svgEl("rect", {
+        x: f.sx(it.e) - colW / 2, y: m.t, width: colW, height: f.plotH,
+        fill: "transparent" });
+      rect.addEventListener("mousemove", function (evt) {
+        var lines = series.map(function (s, si) {
+          return "<span style='color:" + SLOT_COLORS[si] + "'>●</span> " +
+            tx(s.name) + "：" + s.values[i];
+        });
+        tipShow(evt, "<strong>" + format(txt("editionFormat"), it.e, it.y) +
+          "</strong>" + lines.join("<br>"));
+      });
+      rect.addEventListener("mouseleave", tipHide);
+      f.svg.appendChild(rect);
+    });
+    return f.svg;
+  }
+
+  // stacked bar chart (one bar per edition)
+  function stackChart(eds, series) {
+    var W = 940, H = 260;
+    var m = { t: 14, r: 24, b: 30, l: 38 };
+    var totals = eds.map(function (_, i) {
+      return series.reduce(function (sum, s) { return sum + s.values[i]; }, 0);
+    });
+    var yMax = niceMax(Math.max.apply(null, totals));
+    var f = chartFrame(W, H, m, eds, yMax);
+    var barW = Math.max(6, f.plotW / eds.length * 0.66);
+
+    eds.forEach(function (it, i) {
+      var acc = 0;
+      series.forEach(function (s, si) {
+        var v = s.values[i];
+        if (!v) return;
+        var y1 = f.sy(acc + v), y0 = f.sy(acc);
+        f.svg.appendChild(svgEl("rect", {
+          x: f.sx(it.e) - barW / 2, y: y1, width: barW, height: Math.max(1, y0 - y1),
+          fill: SLOT_COLORS[si], stroke: "var(--panel)", "stroke-width": 1,
+          rx: acc + v >= totals[i] ? 2 : 0 }));
+        acc += v;
+      });
+      var hit = svgEl("rect", { x: f.sx(it.e) - barW / 2 - 2, y: m.t,
+        width: barW + 4, height: f.plotH, fill: "transparent" });
+      hit.addEventListener("mousemove", function (evt) {
+        var lines = series.map(function (s, si) {
+          return s.values[i] ? "<span style='color:" + SLOT_COLORS[si] + "'>■</span> " +
+            tx(s.name) + "：" + s.values[i] : "";
+        }).filter(Boolean);
+        tipShow(evt, "<strong>" + format(txt("editionFormat"), it.e, it.y) +
+          "（" + totals[i] + "）</strong>" + lines.join("<br>"));
+      });
+      hit.addEventListener("mouseleave", tipHide);
+      f.svg.appendChild(hit);
+    });
+    return f.svg;
+  }
+
+  function renderStats() {
+    clear(dom.app);
+    tipHide();
+    var eds = state.editions;
+    var byE = {};
+    state.records.forEach(function (r) { (byE[r.e] = byE[r.e] || []).push(r); });
+
+    // A: total nomination records per edition
+    var totalSeries = [{ name: txt("chartA"),
+      values: eds.map(function (it) { return (byE[it.e] || []).length; }) }];
+
+    // B: nomination records per language per edition
+    var langSeries = LANGS.map(function (lang) {
+      return { name: lang, values: eds.map(function (it) {
+        return (byE[it.e] || []).filter(function (r) {
+          return (getAward(r.aid) || {}).lang === lang;
+        }).length;
+      }) };
+    });
+
+    // C: distinct awards handed out per section per edition
+    var sectionSeries = SECTIONS.map(function (section) {
+      return { name: section, values: eds.map(function (it) {
+        var set = new Set();
+        (byE[it.e] || []).forEach(function (r) {
+          if ((getAward(r.aid) || {}).section === section) set.add(r.aid);
+        });
+        return set.size;
+      }) };
+    });
+
+    var headers = ["屆", "年"];
+    dom.app.appendChild(el("section", { className: "panel" }, [
+      chartCard("chartA", "chartASub", lineChart(eds, totalSeries), null,
+        dataTable(headers.concat(["入圍件數"]), eds.map(function (it, i) {
+          return [it.e, it.y, totalSeries[0].values[i]];
+        }))),
+      chartCard("chartB", "chartBSub", lineChart(eds, langSeries),
+        langSeries.map(function (s, si) { return { name: s.name, color: SLOT_COLORS[si] }; }),
+        dataTable(headers.concat(LANGS), eds.map(function (it, i) {
+          return [it.e, it.y].concat(langSeries.map(function (s) { return s.values[i]; }));
+        }))),
+      chartCard("chartC", "chartCSub", stackChart(eds, sectionSeries),
+        sectionSeries.map(function (s, si) { return { name: s.name, color: SLOT_COLORS[si] }; }),
+        dataTable(headers.concat(SECTIONS), eds.map(function (it, i) {
+          return [it.e, it.y].concat(sectionSeries.map(function (s) { return s.values[i]; }));
+        })))
+    ]));
+  }
+
+  /* ── 金曲冷知識 ────────────────────────────────────────── */
+
+  function computeTrivia() {
+    var map = new Map();
+    state.records.forEach(function (record) {
+      unique(splitPeople(record.who).concat(splitPerf(record.perf))).forEach(function (name) {
+        if (!name || name === "從缺") return;
+        if (!map.has(name)) map.set(name, { name: name, wins: 0, noms: 0, lo: 99, hi: 0 });
+        var it = map.get(name);
+        it.noms += 1;
+        if (record.win) it.wins += 1;
+        it.lo = Math.min(it.lo, record.e);
+        it.hi = Math.max(it.hi, record.e);
+      });
+    });
+    var people = [], units = [];
+    map.forEach(function (it) {
+      (COMPANY_RE.test(it.name) ? units : people).push(it);
+    });
+    var facts = [];
+    var byNoms = people.slice().sort(function (a, b) { return b.noms - a.noms; });
+    var byWins = people.slice().sort(function (a, b) { return b.wins - a.wins; });
+    if (byNoms[0]) facts.push(byNoms[0].name + " 是入圍次數最多的音樂人，共入圍 " +
+      byNoms[0].noms + " 次、得獎 " + byNoms[0].wins + " 次");
+    if (byWins[0]) facts.push(byWins[0].name + " 以 " + byWins[0].wins +
+      " 座獎成為得獎最多的音樂人");
+    var loser = people.filter(function (p) { return p.wins === 0; })
+      .sort(function (a, b) { return b.noms - a.noms; })[0];
+    if (loser) facts.push(loser.name + " 入圍 " + loser.noms +
+      " 次卻從未得獎，是史上最大「遺珠」");
+    var perfect = people.filter(function (p) { return p.noms >= 4 && p.wins === p.noms; })
+      .sort(function (a, b) { return b.noms - a.noms; })[0];
+    if (perfect) facts.push(perfect.name + " 入圍 " + perfect.noms +
+      " 次全數得獎，得獎率 100%");
+    var span = people.filter(function (p) { return p.noms >= 5; })
+      .sort(function (a, b) { return (b.hi - b.lo) - (a.hi - a.lo); })[0];
+    if (span) facts.push(span.name + " 的入圍紀錄從第 " + span.lo + " 屆跨到第 " +
+      span.hi + " 屆，生涯橫跨 " + (span.hi - span.lo) + " 屆");
+    var topUnit = units.sort(function (a, b) { return b.wins - a.wins; })[0];
+    if (topUnit) facts.push(topUnit.name + " 是得獎最多的公司/單位，共 " +
+      topUnit.wins + " 座");
+    // single-edition sweep
+    var sweep = {};
+    state.records.forEach(function (record) {
+      if (!record.win) return;
+      unique(splitPeople(record.who).concat(splitPerf(record.perf))).forEach(function (name) {
+        if (!name || name === "從缺" || COMPANY_RE.test(name)) return;
+        var key = name + "@" + record.e;
+        sweep[key] = (sweep[key] || 0) + 1;
+      });
+    });
+    var best = Object.keys(sweep).sort(function (a, b) { return sweep[b] - sweep[a]; })[0];
+    if (best && sweep[best] >= 3) {
+      var parts = best.split("@");
+      facts.push("第 " + parts[1] + " 屆 " + parts[0] + " 一舉抱回 " +
+        sweep[best] + " 座獎，堪稱大贏家");
+    }
+    var busiest = state.editions.slice().sort(function (a, b) {
+      return state.records.filter(function (r) { return r.e === b.e; }).length -
+        state.records.filter(function (r) { return r.e === a.e; }).length;
+    })[0];
+    if (busiest) {
+      var n = state.records.filter(function (r) { return r.e === busiest.e; }).length;
+      facts.push("第 " + busiest.e + " 屆（" + busiest.y + "）共有 " + n +
+        " 筆入圍紀錄，是史上規模最大的一屆");
+    }
+    facts.push("本資料庫共收錄 " + state.records.length + " 筆入圍/得獎紀錄、" +
+      state.records.filter(function (r) { return r.win; }).length + " 座獎");
+    return facts;
+  }
+
+  function triviaCard() {
+    if (!state.trivia) {
+      state.trivia = computeTrivia();
+      state.triviaIdx = Math.floor(Math.random() * state.trivia.length);
+    }
+    var text = el("p", {}, [tx("金曲冷知識：" + state.trivia[state.triviaIdx])]);
+    var more = el("button", { type: "button" }, [txt("triviaMore")]);
+    more.addEventListener("click", function () {
+      state.triviaIdx = (state.triviaIdx + 1 +
+        Math.floor(Math.random() * (state.trivia.length - 1))) % state.trivia.length;
+      renderRanking();
+    });
+    return el("div", { className: "trivia" }, [
+      el("span", { className: "bulb" }, ["💡"]), text, more]);
+  }
+
+  /* ── 複製連結 / 生涯時間線 ─────────────────────────────── */
+
+  function copyLinkButton() {
+    var button = el("button", { className: "copy-link", type: "button" }, [txt("copyLink")]);
+    button.addEventListener("click", function () {
+      var done = function () {
+        button.textContent = txt("copied");
+        setTimeout(function () { button.textContent = txt("copyLink"); }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(window.location.href).then(done, done);
+      }
+    });
+    return button;
+  }
+
+  function careerTimeline(records) {
+    var eds = records.map(function (r) { return r.e; });
+    var lo = Math.min.apply(null, eds), hi = Math.max.apply(null, eds);
+    lo = Math.max(1, lo - 1);
+    hi = Math.min(state.editions.length ? state.editions[state.editions.length - 1].e : hi, hi + 1);
+    var stack = {};
+    var maxStack = 1;
+    records.forEach(function (r) {
+      stack[r.e] = (stack[r.e] || 0) + 1;
+      maxStack = Math.max(maxStack, stack[r.e]);
+    });
+    var W = 900, rowH = 13, m = { l: 26, r: 26, b: 24, t: 10 };
+    var H = m.t + maxStack * rowH + m.b;
+    var sx = function (e) { return m.l + (e - lo) / Math.max(1, hi - lo) * (W - m.l - m.r); };
+    var baseY = m.t + maxStack * rowH - 5;
+    var svg = svgEl("svg", { viewBox: "0 0 " + W + " " + H, role: "img" });
+    svg.appendChild(svgEl("line", { x1: m.l - 8, x2: W - m.r + 8, y1: baseY + 8, y2: baseY + 8,
+      stroke: "var(--viz-axis)", "stroke-width": 1 }));
+    for (var e = lo; e <= hi; e += 1) {
+      if (e % 5 === 0 || e === lo || e === hi) {
+        svg.appendChild(svgEl("line", { x1: sx(e), x2: sx(e), y1: baseY + 8, y2: baseY + 12,
+          stroke: "var(--viz-axis)", "stroke-width": 1 }));
+        svg.appendChild(svgText(sx(e), baseY + 23, e + txt("edSuffix"), "middle"));
+      }
+    }
+    var seen = {};
+    records.slice().sort(function (a, b) {
+      return a.e - b.e || Number(a.win) - Number(b.win);
+    }).forEach(function (r) {
+      seen[r.e] = (seen[r.e] || 0) + 1;
+      var cy = baseY - (seen[r.e] - 1) * rowH;
+      var dot = r.win
+        ? svgEl("circle", { cx: sx(r.e), cy: cy, r: 5.2, fill: "var(--gold)",
+            stroke: "var(--gold-dark)", "stroke-width": 1.5 })
+        : svgEl("circle", { cx: sx(r.e), cy: cy, r: 4, fill: "none",
+            stroke: "var(--viz-axis)", "stroke-width": 1.6 });
+      var title = svgEl("title", {});
+      title.textContent = tx(format(txt("edOnly"), r.e) + " " + ((getAward(r.aid) || {}).name || r.cat) +
+        (r.win ? "（得獎）" : "（入圍）"));
+      dot.appendChild(title);
+      svg.appendChild(dot);
+    });
+    return el("div", { className: "timeline-wrap" }, [svg]);
+  }
+
   function recordRow(record) {
     var tr = document.createElement("tr");
     if (record.win) {
@@ -939,7 +1354,8 @@
       el("div", { className: "person-head" }, [
         back,
         el("h2", {}, [tx(display)]),
-        el("span", { className: "muted" }, [format(txt("editionFormat"), edition, year || "")])
+        el("span", { className: "muted" }, [format(txt("editionFormat"), edition, year || "")]),
+        copyLinkButton()
       ]),
       el("div", { className: "cards" }, [
         statCard(txt("totalNoms"), records.length),
