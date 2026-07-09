@@ -26,6 +26,9 @@
 }
 
 html {
+  /* keep the scrollbar always visible so switching between long and short
+     pages (排行榜 → 個人頁) doesn't shift the centered layout horizontally */
+  overflow-y: scroll;
   background: var(--page);
   color: var(--ink);
   font-family: "Noto Sans TC Sub", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", -apple-system, "Segoe UI", Arial, sans-serif;

@@ -37,7 +37,6 @@
     typePerson: "個人・團體",
     typeUnit: "公司・單位",
     typeAll: "全部（混排）",
-    onlyWins: "只看得獎紀錄",
     showMore: "顯示更多",
     totalRows: "共 {0} 筆統計；目前顯示 {1} 筆",
     rank: "排名",
@@ -102,7 +101,7 @@
       from: "",
       to: "",
       sort: "wins",
-      winsOnly: false,
+
       type: "person"  // 預設個人・團體，避免公司與歌手混排
     }
   };
@@ -441,7 +440,7 @@
       from: state.editions.length ? String(state.editions[0].e) : "",
       to: state.editions.length ? String(state.editions[state.editions.length - 1].e) : "",
       sort: "wins",
-      winsOnly: false,
+
       type: "person"
     };
     dom.globalSearch.value = "";
@@ -525,11 +524,7 @@
         ], filters.type, function (value) {
           filters.type = value;
           resetRanking();
-        })),
-        checkField("rankWinsOnly", txt("onlyWins"), filters.winsOnly, function (checked) {
-          filters.winsOnly = checked;
-          resetRanking();
-        })
+        }))
       ]),
       el("div", { className: "summary" }, [
         format(txt("totalRows"), rows.length, visibleRows.length)
@@ -590,9 +585,6 @@
         return;
       }
       if (filters.lang && award.lang !== filters.lang) {
-        return;
-      }
-      if (filters.winsOnly && !record.win) {
         return;
       }
       if (record.e < from || record.e > to) {
